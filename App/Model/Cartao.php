@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-require_once 'App/Model/Usuario';
+require_once 'App/Model/Usuario.php';
 
 use PDOException;
 
@@ -12,6 +12,9 @@ class Cartao
     private $numCartao;
     private $dataValidade;
     private $cvv;
+    private $idUsuario;
+    private $lastIdCartao;
+
 
     // public function __construct(Usuario $titularCartao, string $numCartao, string $dataValidade, string $cvv)
     // {
@@ -125,20 +128,20 @@ class Cartao
     {
         return $this->lastIdCartao;
     }
-    
+
     public function cadastrarCartao()
     {
-        try{
+        try {
             $conn = ConexaoBD::Conexao();
 
             $titularCartao = $this->getTitularCartao();
             $numCartao = $this->getNumCartao();
             $dataValidade = $this->getDataValidade();
             $cvv = $this->getCvv();
-            $idUsuario = $this->getIdUsario();
+            $idUsuario = $this->getIdUsuario();
 
             $sql = $conn->prepare('INSERT INTO findinn.cartao (titular, numero, vencimento, cvv, id_usuario) VALUES (:titularCartao, :numCartao, :dataValidade, :cvv, :idUsuario)');
-            
+
             $sql->bindParam('titularCartao', $titularCartao);
             $sql->bindParam('numCartao', $numCartao);
             $sql->bindParam('dataValidade', $dataValidade);
@@ -149,12 +152,10 @@ class Cartao
 
             $lastIdCartao = $conn->lastInsertId();
             $this->setIdCartao($lastIdCartao);
-            
-            return $lastIdCartao;
 
-        }catch (PDOException $e){
+            return $lastIdCartao;
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
 }
-

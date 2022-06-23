@@ -64,53 +64,49 @@ $style = "";
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-4">
                                     <label for="cidadeImovel">Cidade</label>
-                                    <input type="text" name="cidadeImovel" class="form-control" id="cidadeImovel" placeholder="Salvador" required />
+                                    <!-- <input type="text" name="cidadeImovel" class="form-control" id="cidadeImovel" placeholder="Salvador" required /> -->
+                                    <select name="cidadeImovel">
+                                        <option value="0" selected>Cidade</option>
+                                        <option value="1">Salvador</option>
+                                        <option value="2">Recife</option>
+                                        <option value="3">Natal</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
                                     <label for="estadoImovel">Estado</label>
-                                    <input type="text" name="estadoImovel" class="form-control" id="estadoImovel" placeholder="Bahia" required />
+                                    <!-- <input type="text" name="estadoImovel" class="form-control" id="estadoImovel" placeholder="Bahia" required /> -->
+                                    <select name="estadoImovel">
+                                        <option value="0" selected>Estado</option>
+                                        <option value="1">Bahia</option>
+                                        <option value="2">Pernambuco</option>
+                                        <option value="3">Rio Grande do Norte</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
                                     <label for="paisImovel">País</label>
-                                    <input type="text" name="paisImovel" class="form-control" id="paisImovel" placeholder="Brasil" required />
+                                    <!-- <input type="text" name="paisImovel" class="form-control" id="paisImovel" placeholder="Brasil" required /> -->
+                                    <select name="paisImovel">
+                                        <option value="0" selected>País</option>
+                                        <option value="1">Brasil</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-4">
                                     <label for="tipoResidencia">Tipo de Residência</label>
-                                    <input type="text" name="tipoResidencia" class="form-control" id="tipoResidencia" placeholder="Fazenda" required />
+                                    <!-- <input type="text" name="tipoResidencia" class="form-control" id="tipoResidencia" placeholder="Fazenda" required /> -->
 
-                                    <!-- <select
-                                            id="inputResidencia"
-                                            class="form-control"
-                                        >
-                                            <option selected>
-                                                Escolher...
-                                            </option>
-                                            <option value="1">Quarto</option>
-                                            <option value="2">
-                                                Apartamento
-                                            </option>
-                                            <option value="3">Casa</option>
-                                            <option value="4">Fazenda</option>
-                                        </select> -->
+                                    <select id="tipoResidencia" name="tipoResidencia" class="form-control">
+                                        <option value="0" selected>Categoria</option>
+                                        <option value="1">Casa</option>
+                                        <option value="2">Fazenda</option>
+                                        <option value="3">Quarto</option>
+                                        <option value="4">Apartamento</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
                                     <label for="capacidadeImovel">Capacidade Máxima</label>
                                     <input type="number" name="capacidadeImovel" class="form-control" id="capacidadeImovel" placeholder="5" />
-                                    <!-- <select
-                                            id="inputCapacidade"
-                                            class="form-control"
-                                        >
-                                            <option selected>
-                                                Escolher...
-                                            </option>
-                                            <option value="1">3</option>
-                                            <option value="2">5</option>
-                                            <option value="3">8</option>
-                                            <option value="4">10</option>
-                                            <option value="5">15</option>
-                                        </select> -->
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
                                     <label for="diariaImovel">Preço Diaria</label>
@@ -121,7 +117,7 @@ $style = "";
                                 <div class="form-group">
                                     <label for="adicionais">Adicionais</label>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="form-check-input ms-1" id="cozinha" name="cozinha" />
+                                        <!-- <input type="checkbox" class="form-check-input ms-1" id="cozinha" name="cozinha" />
                                         <label class="custom-control-label" for="cozinha">Cozinha</label>
                                         <input type="checkbox" class="form-check-input" id="jacuzzi" name="jacuzzi" />
                                         <label class="custom-control-label" for="jacuzzi">Jacuzzi</label>
@@ -138,20 +134,29 @@ $style = "";
                                         <input type="checkbox" name="camera" class="form-check-input ms-1" id="camera" />
                                         <label class="custom-control-label tamanho-label" for="camera">Câmera de Segurança</label>
                                         <input type="checkbox" name="detector" class="form-check-input" id="detector" />
-                                        <label class="custom-control-label tamanho-label" for="detector">Detector de Fumaça</label>
+                                        <label class="custom-control-label tamanho-label" for="detector">Detector de Fumaça</label> -->
+                                        <select multiple name="adicionaisImovel">
+                                            <option value="0" selected>Adicionais</option>
+                                            <option value="1">Cozinha</option>
+                                            <option value="1">Jacuzzi</option>
+                                            <option value="1">Refrigerador</option>
+                                            <option value="1">Wifi</option>
+                                            <option value="1">Ar-Condicionado</option>
+                                            <option value="1">Alarme de Incêndio</option>
+                                            <option value="1">Detector de Fumaça</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-4 ps-1 me-3">
-                                    <label for="imagemImovel">Fotos</label>
+                                    <label for="imagemImovel">Imagem</label>
                                     <input type="file" id="imagemImovel" name="imagemImovel" accept="image/png, image/jpeg" />
                                 </div>
                             </div>
                             <div class="form-group col-md-2 mt-1">
                                 <label for="descricaoImovel">Descrição</label>
-                                <textarea id="descricaoImovel" name="descricaoImovel" rows="5" cols="70">
-                                    </textarea>
+                                <textarea id="descricaoImovel" name="descricaoImovel" rows="5" cols="70"></textarea>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
                                 <button type="submit" class="btn btn-success">

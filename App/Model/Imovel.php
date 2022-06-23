@@ -23,8 +23,11 @@ class Imovel
     private $capacidadeMaxima;
     private $descricao;
     private $imagens;
-    //private $idImovel;
-    //private $idCidade;
+    private $idImovel;
+    private $idCidade;
+    private $idEstado;
+    private $idPais;
+
 
     // function __construct(Usuario $anfitriao, string $cep, string $rua, string $numero, string $cidade, string $estado, string $complemento, string $diaria, TipoImovel $tipoImovel, AdicionaisImovel $adicionaisImovel, string $imagens, int $capacidadeMaxima, string $descricao)
     // {
