@@ -6,7 +6,7 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
     $url =  strtoupper($_GET['url']);
     // echo $url;
     switch ($url) {
-        case "USERPAGE":
+        case "AUTHUSER":
             require "App/Controller/UserPageController.php";
             $UserPageController = new UserPageController();
             $UserPageController->Controller();
@@ -16,7 +16,7 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
             $CadastroController = new CadastroController();
             $CadastroController->Controller();
             break;
-        case "AUTHUSER":
+        case "USERPAGE":
             require "App/Controller/UserController.php";
             $userController = new UserController();
             $userController->Controller();
