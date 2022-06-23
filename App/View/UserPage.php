@@ -1,13 +1,13 @@
 <?php
-$style = "cadastrar.css";
-$title = "Home";
+$style = 'style.php';
+$title = "UserPage";
 require "page.php";
 ?>
 
 <body>
     <div class="container-fluid" style="height: 50vh">
         <?php
-        require "cabecalho-off.php";
+        require "cabecalho-on.php";
         ?>
 
         <section class="section section-top section-full">

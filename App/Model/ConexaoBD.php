@@ -1,12 +1,13 @@
 <?php
+
 class ConexaoBD
 {
     public static function Conexao()
     {
         $servername = "localhost:3306";
         $dbname = "findinn";
-        $username = "root";
-        $password = "";
+        $username = "jeoston";
+        $password = "14029510";
 
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
