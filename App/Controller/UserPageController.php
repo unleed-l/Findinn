@@ -6,6 +6,6 @@ class UserPageController implements IController
 {
     public function Controller()
     {
-        require "App/View/UserPage.php";
+        require_once "App/View/UserPage.php";
     }
 }

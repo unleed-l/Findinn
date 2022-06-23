@@ -216,4 +216,16 @@ class AdicionaisImovel
 
         return $this;
     }
+
+    public function inserirAdicionais()
+    {
+        $conn = ConexaoBD::Conexao();
+
+        $tipoAdicional = $this->
+
+        $sql = $conn->prepare('INSERT INTO findinn.adicional_acomodacao (tipo_adicional) VALUES (:tipoAdicional)');
+
+        $sql->bindParam('tipoAdicional', $tipoAdicional);
+    }
+
 }

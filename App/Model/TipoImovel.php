@@ -2,6 +2,10 @@
 
 namespace App\Model;
 
+require_once 'ConexaoBD.php';
+
+Use PDOException;
+
 class TipoImovel
 {
 
@@ -30,5 +34,42 @@ class TipoImovel
         $this->tipo = $tipo;
 
         return $this;
+    }
+
+    public function setIdTipo($lastIdTipoImovel)
+    {
+        $this->lastIdTipoImovel = $lastIdTipoImovel;
+
+        return $this;
+    }
+
+    public function getIdTipo()
+    {
+        return $this->lastIdTipoImovel;
+    }
+    
+    public function inserirTipoImovel()
+    {
+        try
+        {
+            $conn = ConexaoBD::Conexao();
+
+            $tipoImovel = $this->getTipo();
+
+            $sql = $conn->prepare('INSERT INTO findinn.tipo_acomodacao (descricao) VALUES (:tipoImovel)');
+
+            $sql->bindParam('tipoImovel', $tipoImovel);
+
+            $sql->execute();
+
+            $lastIdTipoImovel = $conn->lastInsertId();
+            $this->setIdTipo($lastIdTipoImovel);
+
+            return $lastIdTipoImovel;
+
+        }catch (PDOException $e)
+        {
+            return $e->getMessage();
+        }
     }
 }
