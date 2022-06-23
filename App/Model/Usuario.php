@@ -1,6 +1,10 @@
 <?php
 
-require 'ConexaoBD.php';
+namespace App\Model;
+
+require_once 'ConexaoBD.php';
+
+use PDOException;
 
 class Usuario
 {
