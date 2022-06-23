@@ -6,41 +6,62 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
     $url =  strtoupper($_GET['url']);
     // echo $url;
     switch ($url) {
-        case "HOME":
-            require "Controller/ControladorFormLivro.php";
-            $controlador = new ControladorFormLivro();
-            $controlador->processaRequisicao();
+        case "USERPAGE":
+            require "App/Controller/UserPageController.php";
+            $UserPageController = new UserPageController();
+            $UserPageController->Controller();
             break;
-        case "INCLUIRLIVRO":
-            require "Controller/ControladorNovoLivro.php";
-            $controlador = new ControladorNovoLivro();
-            $controlador->processaRequisicao();
+        case "CADASTRO":
+            require "App/Controller/CadastroController.php";
+            $CadastroController = new CadastroController();
+            $CadastroController->Controller();
             break;
-        case "EXCLUIRLIVRO":
-            require "Controller/ControladorLivroExcluir.php";
-            $controlador = new ControladorLivroExcluir();
-            $controlador->processaRequisicao();
+        case "AUTHUSER":
+            require "App/Controller/UserController.php";
+            $userController = new UserController();
+            $userController->Controller();
             break;
-        case "FORMALTERARLIVRO":
-            require "Controller/ControladorFormLivroAlterar.php";
-            $controlador = new ControladorFormLivroAlterar();
-            $controlador->processaRequisicao();
+        case "TESTE":
+            require "App/View/teste.php";
             break;
-        case "ALTERARLIVRO":
-            require "Controller/ControladorLivroAlterar.php";
-            $controlador = new ControladorLivroAlterar();
-            $controlador->processaRequisicao();
-            break;
-        case "LISTARLIVRO":
-            require "Controller/ControladorLivroListar.php";
-            $controlador = new ControladorLivroListar();
-            $controlador->processaRequisicao();
-            break;
+
+            // case "USERPAGE":
+            //     require "Controller/UserPageController.php";
+            //     $UserController = new UserPageController();
+            //     $UserController->Controller();
+            //     break;
+            // case "CADASTRARACOMODACAO":
+            //     require "Controller/CadastroAcomodacaoController.php";
+            //     $CadastrarAcomodacao = new CadastroAcomodacaoController();
+            //     $CadastrarAcomodacao->Controller();
+            //     $CadastrarAcomodacao->CadastrarAcomodacao();
+            //     break;
+            // case "LOGIN":
+            //     require "Controller/LoginController.php";
+            //     $LoginController = new LoginController();
+            //     $LoginController->Controller();
+            //     break;
+            // case "ACOMODACOES":
+            //     require "Controller/AcomodacaoController.php";
+            //     $AcomodacaoController = new AcomodacaoController();
+            //     $AcomodacaoController->Controller();
+            //     break;
+            // case "ALTERARLIVRO":
+            //     require "Controller/ControladorLivroAlterar.php";
+            //     $controlador = new ControladorLivroAlterar();
+            //     $controlador->processaRequisicao();
+            //     break;
+            // case "LISTARLIVRO":
+            //     require "Controller/ControladorLivroListar.php";
+            //     $controlador = new ControladorLivroListar();
+            //     $controlador->processaRequisicao();
+            //     break;
         default:
-            require "Controller/ControladorLivroListar.php";
-            $controlador = new ControladorLivroListar();
-            $controlador->processaRequisicao();
+            require "App/Controller/HomeController.php";
+            $HomeController = new HomeController();
+            $HomeController->Controller();
             break;
     }
-} else                     //senão, vai para uma página padrão, neste caso a home do site
-    $url = '404.php';
+} else {
+    $url = 'App/View/404.php';
+}

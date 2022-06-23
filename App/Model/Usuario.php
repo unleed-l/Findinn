@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Model;
+require 'ConexaoBD.php';
 
 class Usuario
 {
+    private $id;
     private $nome;
     private $cpf;
     private $tel;
@@ -11,15 +12,15 @@ class Usuario
     private $email;
     private $pais;
 
-    function __construct(string $nome, string $cpf, string $tel, string $senha, string $email, string $pais)
-    {
-        $this->nome = $nome;
-        $this->cpf = $cpf;
-        $this->tel = $tel;
-        $this->senha = $senha;
-        $this->email = $email;
-        $this->pais = $pais;
-    }
+    // public function __construct(string $nome, string $cpf, string $tel, string $senha, string $email, string $pais)
+    // {
+    //     $this->nome = $nome;
+    //     $this->cpf = $cpf;
+    //     $this->tel = $tel;
+    //     $this->senha = $senha;
+    //     $this->email = $email;
+    //     $this->pais = $pais;
+    // }
 
     /**
      * Get the value of nome
@@ -140,9 +141,59 @@ class Usuario
 
         return $this;
     }
-    
-    public function cadUsuario(){
-        $usuarioDAO = new UsuarioDAO();
-        $usuarioDAO->cadUsuario($this);
-   }
+
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function cadastrarUsuario()
+    {
+        try {
+            $conn = ConexaoBD::Conexao();
+            $sql = $conn->prepare('INSERT INTO findinn.usuario (nome, cpf, email, senha, telefone, locatario, anfitriao, id_pais) VALUES (:nome, :cpf ,:email, :senha, :telefone, :locatario, :anfitriao, :id_pais)');
+
+            $nome = $this->getnome();
+            $cpf = $this->getCpf();
+            $email = $this->getEmail();
+            $senha = $this->getsenha();
+            $telefone = $this->getTel();
+            $locatario = 0;
+            $anfitriao = 0;
+            $id_pais = $this->getpais();
+
+            $sql->bindParam("nome", $nome);
+            $sql->bindParam("cpf", $cpf);
+            $sql->bindParam("email", $email);
+            $sql->bindParam("senha", $senha);
+            $sql->bindParam("telefone", $telefone);
+            $sql->bindParam("locatario", $locatario);
+            $sql->bindParam("anfitriao", $anfitriao);
+            $sql->bindParam("id_pais", $id_pais);
+
+
+            $sql->execute();
+
+            $last_id = $conn->lastInsertId();
+            $this->setId($last_id);
+            return $last_id;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
 }
