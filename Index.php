@@ -6,6 +6,10 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
     $url =  strtoupper($_GET['url']);
     // echo $url;
     switch ($url) {
+        case "HOME":
+            require "App/Controller/HomeController.php";
+            $HomeController = new HomeController();
+            $HomeController->Controller();
         case "AUTHUSER":
             require "App/Controller/UserPageController.php";
             $UserPageController = new UserPageController();
@@ -24,7 +28,6 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
         case "TESTE":
             require "App/View/teste.php";
             break;
-
             // case "USERPAGE":
             //     require "Controller/UserPageController.php";
             //     $UserController = new UserPageController();
@@ -57,9 +60,6 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
             //     $controlador->processaRequisicao();
             //     break;
         default:
-            require "App/Controller/HomeController.php";
-            $HomeController = new HomeController();
-            $HomeController->Controller();
             break;
     }
 } else {
