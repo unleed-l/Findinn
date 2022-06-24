@@ -1,6 +1,9 @@
+<?php
+$logo = 'logo.png';
+?>
 <nav class="bg-primaryX text-lightX navbar navbar-expand-xl navbar-dark navbar-togglable fixed-top">
     <div class="container justify-content-center">
-        <a class="navbar-brand" href="UserPage"><img src=<?php require 'logo.png' ?> alt="logo" />
+        <a class="navbar-brand" href="UserPage"><img src=<?php $logo ?> alt="logo" />
         </a>
 
         <ul class="nav justify-content-center">

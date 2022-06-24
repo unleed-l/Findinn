@@ -1,6 +1,6 @@
 <?php
 require "Model/Usuario.php";
-require_once "IController.php";
+require "IController.php";
 
 
 // class LoginController implements IController

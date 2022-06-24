@@ -1,7 +1,7 @@
 <?php
 
-require_once 'App/Model/Usuario.php';
-require_once 'IController.php';
+require "App/Model/Usuario.php";
+require "IController.php";
 
 class UserController implements IController
 {
@@ -22,7 +22,7 @@ class UserController implements IController
         $this->usuario->setpais($_POST['pais']);
 
         $this->usuario->cadastrarUsuario();
-
-        require_once 'App/View/UserPage.php';
+        echo var_dump($this->usuario->cadastrarUsuario());
+        //require "App/View/UserPage.php";
     }
 }

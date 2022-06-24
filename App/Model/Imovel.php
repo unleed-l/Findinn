@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Model;
 
-require_once 'Usuario.php';
-require_once 'ConexaoBD.php';
+require "Usuario.php";
+require "ConexaoBD.php";
 
-use PDOException;
 
 class Imovel
 {

@@ -1,10 +1,6 @@
 <?php
 
-namespace App\Model;
-
-require_once 'App/Model/Usuario.php';
-
-use PDOException;
+require "App/Model/Usuario.php";
 
 class Cartao
 {
@@ -28,7 +24,7 @@ class Cartao
     /**
      * Get the value of titularCartao
      */
-    public function getTitularCartao(): Usuario
+    public function getTitularCartao()
     {
         return $this->titularCartao;
     }
@@ -38,7 +34,7 @@ class Cartao
      *
      * @return  self
      */
-    public function setTitularCartao(Usuario $titularCartao)
+    public function setTitularCartao($titularCartao)
     {
         $this->titularCartao = $titularCartao;
 
@@ -129,33 +125,33 @@ class Cartao
         return $this->lastIdCartao;
     }
 
-    public function cadastrarCartao()
-    {
-        try {
-            $conn = ConexaoBD::Conexao();
+    // public function cadastrarCartao()
+    // {
+    //     try {
+    //         $conn = ConexaoBD::Conexao();
 
-            $titularCartao = $this->getTitularCartao();
-            $numCartao = $this->getNumCartao();
-            $dataValidade = $this->getDataValidade();
-            $cvv = $this->getCvv();
-            $idUsuario = $this->getIdUsuario();
+    //         $titularCartao = $this->getTitularCartao();
+    //         $numCartao = $this->getNumCartao();
+    //         $dataValidade = $this->getDataValidade();
+    //         $cvv = $this->getCvv();
+    //         $idUsuario = $this->getIdUsuario();
 
-            $sql = $conn->prepare('INSERT INTO findinn.cartao (titular, numero, vencimento, cvv, id_usuario) VALUES (:titularCartao, :numCartao, :dataValidade, :cvv, :idUsuario)');
+    //         $sql = $conn->prepare('INSERT INTO findinn.cartao (titular, numero, vencimento, cvv, id_usuario) VALUES (:titularCartao, :numCartao, :dataValidade, :cvv, :idUsuario)');
 
-            $sql->bindParam('titularCartao', $titularCartao);
-            $sql->bindParam('numCartao', $numCartao);
-            $sql->bindParam('dataValidade', $dataValidade);
-            $sql->bindParam('cvv', $cvv);
-            $sql->bindParam('idUsuario', $idUsuario);
+    //         $sql->bindParam('titularCartao', $titularCartao);
+    //         $sql->bindParam('numCartao', $numCartao);
+    //         $sql->bindParam('dataValidade', $dataValidade);
+    //         $sql->bindParam('cvv', $cvv);
+    //         $sql->bindParam('idUsuario', $idUsuario);
 
-            $sql->execute();
+    //         $sql->execute();
 
-            $lastIdCartao = $conn->lastInsertId();
-            $this->setIdCartao($lastIdCartao);
+    //         $lastIdCartao = $conn->lastInsertId();
+    //         $this->setIdCartao($lastIdCartao);
 
-            return $lastIdCartao;
-        } catch (PDOException $e) {
-            return $e->getMessage();
-        }
-    }
+    //         return $lastIdCartao;
+    //     } catch (PDOException $e) {
+    //         return $e->getMessage();
+    //     }
+    // }
 }

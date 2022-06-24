@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Model;
 
-require_once 'ConexaoBD.php';
-
-Use PDOException;
+require 'ConexaoBD.php';
 
 class TipoImovel
 {

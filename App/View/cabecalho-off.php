@@ -1,5 +1,5 @@
 <?php
-$logo = 'logo.png';
+$logo = "logo.png";
 ?>
 
 <nav class="bg-primaryX text-lightX navbar navbar-expand-xl navbar-dark navbar-togglable fixed-top">

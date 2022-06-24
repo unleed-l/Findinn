@@ -1,11 +1,11 @@
 <?php
 
-require_once "IController.php";
+require "IController.php";
 
 class UserPageController implements IController
 {
     public function Controller()
     {
-        require_once "App/View/UserPage.php";
+        require "App/View/UserPage.php";
     }
 }

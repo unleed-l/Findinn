@@ -1,8 +1,14 @@
 <?php
 
-echo var_dump($_POST['nome']);
-echo var_dump($_POST['cpf']);
-echo var_dump($_POST['telefone']);
-echo var_dump($_POST['email']);
-echo var_dump($_POST['pais']);
-echo var_dump($_POST['senha']);
+// require "App/Model/Cartao.php";
+
+// echo var_dump(getTitularCartao());
+// echo var_dump(getNumCartao());
+// echo var_dump(getDataValidade());
+// echo var_dump(getCvv());
+
+
+
+		
+
+	
