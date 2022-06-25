@@ -1,7 +1,8 @@
 <?php
 
-require "App/Model/Usuario.php";
+require_once "App/Model/Usuario.php";
 
+require_once "ConexaoBD.php";
 class Cartao
 {
     private $titularCartao;
@@ -11,15 +12,10 @@ class Cartao
     private $idUsuario;
     private $lastIdCartao;
 
-
-    // public function __construct(Usuario $titularCartao, string $numCartao, string $dataValidade, string $cvv)
+    // function __construct(Usuario $idUsuario)
     // {
-    //     $this->$titularCartao = $titularCartao;
-    //     $this->$numCartao = $numCartao;
-    //     $this->$dataValidade = $dataValidade;
-    //     $this->$cvv = $cvv;
+    //     $this->idUsuario = $;
     // }
-
 
     /**
      * Get the value of titularCartao
@@ -101,10 +97,9 @@ class Cartao
         return $this;
     }
 
-    public function setIdUsuario(Usuario $idUsuario)
+    public function setIdUsuario($idUsuario)
     {
-        $this->idUsuario = $idUsuario->getId();
-
+        $this->idUsuario = $idUsuario;
         return $this;
     }
 
@@ -125,33 +120,38 @@ class Cartao
         return $this->lastIdCartao;
     }
 
-    // public function cadastrarCartao()
-    // {
-    //     try {
-    //         $conn = ConexaoBD::Conexao();
+    public function cadastrarCartao()
+    {
+        try {
+            $conn = ConexaoBD::Conexao();
 
-    //         $titularCartao = $this->getTitularCartao();
-    //         $numCartao = $this->getNumCartao();
-    //         $dataValidade = $this->getDataValidade();
-    //         $cvv = $this->getCvv();
-    //         $idUsuario = $this->getIdUsuario();
+            // $sql = $conn->prepare("SELECT * FROM findinn.usuario");
 
-    //         $sql = $conn->prepare('INSERT INTO findinn.cartao (titular, numero, vencimento, cvv, id_usuario) VALUES (:titularCartao, :numCartao, :dataValidade, :cvv, :idUsuario)');
+            // $sql->execute();
 
-    //         $sql->bindParam('titularCartao', $titularCartao);
-    //         $sql->bindParam('numCartao', $numCartao);
-    //         $sql->bindParam('dataValidade', $dataValidade);
-    //         $sql->bindParam('cvv', $cvv);
-    //         $sql->bindParam('idUsuario', $idUsuario);
+            // $idUser = $conn->lastInsertId();
 
-    //         $sql->execute();
+            $titularCartao = $this->getTitularCartao();
+            $numCartao = $this->getNumCartao();
+            $dataValidade = $this->getDataValidade();
+            $cvv = $this->getCvv();
+            $idUsuario = $this->getIdUsuario();
 
-    //         $lastIdCartao = $conn->lastInsertId();
-    //         $this->setIdCartao($lastIdCartao);
+            $sql = $conn->prepare('INSERT INTO findinn.cartao (titular, numero, vencimento, cvv, id_usuario) VALUES (:titularCartao, :numCartao, :dataValidade, :cvv, :idUsuario)');
 
-    //         return $lastIdCartao;
-    //     } catch (PDOException $e) {
-    //         return $e->getMessage();
-    //     }
-    // }
+            $sql->bindParam('titularCartao', $titularCartao);
+            $sql->bindParam('numCartao', $numCartao);
+            $sql->bindParam('dataValidade', $dataValidade);
+            $sql->bindParam('cvv', $cvv);
+            $sql->bindParam('idUsuario', $idUsuario);
+
+            $sql->execute();
+
+            $lastIdCartao = $conn->lastInsertId();
+            $this->setIdCartao($lastIdCartao);
+            return $lastIdCartao;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
 }

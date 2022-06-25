@@ -1,9 +1,7 @@
 <?php
 
-
-require "Usuario.php";
-require "ConexaoBD.php";
-
+require_once "App/Model/Usuario.php";
+require_once "ConexaoBD.php";
 
 class Imovel
 {
@@ -26,28 +24,10 @@ class Imovel
     private $idEstado;
     private $idPais;
 
-
-    // function __construct(Usuario $anfitriao, string $cep, string $rua, string $numero, string $cidade, string $estado, string $complemento, string $diaria, TipoImovel $tipoImovel, AdicionaisImovel $adicionaisImovel, string $imagens, int $capacidadeMaxima, string $descricao)
-    // {
-    //     $this->anfitriao = $anfitriao;
-    //     $this->cep = $cep;
-    //     $this->rua = $rua;
-    //     $this->numero = $numero;
-    //     $this->cidade = $cidade;
-    //     $this->estado = $estado;
-    //     $this->complemento = $complemento;
-    //     $this->diaria = $diaria;
-    //     $this->tipoImovel = $tipoImovel;
-    //     $this->dadicionaisImovel = $adicionaisImovel;
-    //     $this->imagens = $imagens;
-    //     $this->capacidadeMaxima = $capacidadeMaxima;
-    //     $this->descricao = $descricao;
-    // }
-
     /**
      * Get the value of anfitriao
      */
-    public function getAnfitriao(): Usuario
+    public function getAnfitriao()
     {
         return $this->anfitriao;
     }
@@ -57,9 +37,9 @@ class Imovel
      *
      * @return  self
      */
-    public function setAnfitriao(Usuario $anfitriao)
+    public function setAnfitriao($anfitriao): self
     {
-        $this->anfitriao = $anfitriao->getId();
+        $this->anfitriao = $anfitriao;
 
         return $this;
     }
@@ -77,7 +57,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setCep($cep)
+    public function setCep($cep): self
     {
         $this->cep = $cep;
 
@@ -97,7 +77,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setRua($rua)
+    public function setRua($rua): self
     {
         $this->rua = $rua;
 
@@ -117,7 +97,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setNumero($numero)
+    public function setNumero($numero): self
     {
         $this->numero = $numero;
 
@@ -137,7 +117,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setCidade($cidade)
+    public function setCidade($cidade): self
     {
         $this->cidade = $cidade;
 
@@ -149,7 +129,7 @@ class Imovel
         return $this->idCidade;
     }
 
-    public function setIdCidade($idCidade)
+    public function setIdCidade($idCidade): self
     {
         $this->idCidade = $idCidade;
 
@@ -169,7 +149,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setEstado($estado)
+    public function setEstado($estado): self
     {
         $this->estado = $estado;
         return $this;
@@ -180,8 +160,7 @@ class Imovel
         return $this->idEstado;
     }
 
-
-    public function setIdEstado($idEstado)
+    public function setIdEstado($idEstado): self
     {
         $this->idEstado = $idEstado;
         return $this;
@@ -200,7 +179,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setPais($pais)
+    public function setPais($pais): self
     {
         $this->pais = $pais;
 
@@ -212,7 +191,7 @@ class Imovel
         return $this->idPais;
     }
 
-    public function setIdPais($idPais)
+    public function setIdPais($idPais): self
     {
         $this->idPais = $idPais;
         return $this;
@@ -231,7 +210,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setComplemento($complemento)
+    public function setComplemento($complemento): self
     {
         $this->complemento = $complemento;
 
@@ -251,7 +230,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setDiaria($diaria)
+    public function setDiaria($diaria): self
     {
         $this->diaria = $diaria;
 
@@ -357,7 +336,7 @@ class Imovel
 
         return $this;
     }
-    /** 
+    /**
      * Get the value of idImovel
      */
     public function getIdImovel()
@@ -383,13 +362,11 @@ class Imovel
         try {
             $conn = ConexaoBD::Conexao();
 
-
             $nomePais = $this->getPais();
 
             $sql = $conn->prepare('INSERT INTO findinn.pais (nome) VALUES (:nomePais)');
 
             $sql->bindParam("nomePais", $nomePais);
-
 
             $sql->execute();
 
@@ -401,13 +378,11 @@ class Imovel
         }
     }
 
-
     public function inserirEstado()
     {
 
         try {
             $conn = ConexaoBD::Conexao();
-
 
             $nomeEstado = $this->getEstado();
             $idPais = $this->getIdPais();
@@ -427,13 +402,11 @@ class Imovel
         }
     }
 
-
     public function inserirCidade()
     {
 
         try {
             $conn = ConexaoBD::Conexao();
-
 
             $nomeCidade = $this->getCidade();
             $idEstado = $this->getIdEstado();

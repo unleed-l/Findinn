@@ -1,15 +1,23 @@
 <?php
 
-//testa a variável url que veio lá do htaccess
-if (isset($_GET['url'])) //se estiver preenchida, pega o valor
-{
-    $url =  strtoupper($_GET['url']);
+if (isset($_GET['url'])) {
+    $url = strtoupper($_GET['url']);
     // echo $url;
     switch ($url) {
         case "HOME":
             require "App/Controller/HomeController.php";
             $HomeController = new HomeController();
             $HomeController->Controller();
+            break;
+        case "LOGAR":
+            require "App/Controller/LoginPageController.php";
+            $LoginPageController = new LoginPageController();
+            $LoginPageController->Controller();
+            break;
+        case "AUTHLOGIN":
+            require "App/Controller/LoginController.php";
+            $LoginController = new LoginController();
+            $LoginController->Controller();
             break;
         case "USERPAGE":
             require "App/Controller/UserPageController.php";
@@ -26,16 +34,16 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
             $UserController = new UserController();
             $UserController->Controller();
             break;
-        // case "CADASTRARACOMODACAO":
-        //     require "App/Controller/ImovelPageController.php";
-        //     $ImovelPage = new ImovelPageController();
-        //     $ImovelPage->Controller();
-        //     break;
-        // case "IMOVELPAGE":
-        //     require "App/Controller/ImovelController.php";
-        //     $ImovelController = new ImovelController();
-        //     $ImovelController->Controller();
-        //     break;
+        case "CADASTRARACOMODACAO":
+            require "App/Controller/ImovelPageController.php";
+            $ImovelPage = new ImovelPageController();
+            $ImovelPage->Controller();
+            break;
+        case "IMOVELPAGE":
+            require "App/Controller/ImovelController.php";
+            $ImovelController = new ImovelController();
+            $ImovelController->Controller();
+            break;
         // case "TESTE":
         //     require "App/View/teste.php";
         //     break;

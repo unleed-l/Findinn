@@ -1,7 +1,7 @@
 <?php
-
-require "ConexaoBD.php";
-
+session_start();
+$_SESSION['id'] = -1;
+require_once "ConexaoBD.php";
 class Usuario
 {
     private $id;
@@ -35,7 +35,7 @@ class Usuario
      *
      * @return  self
      */
-    public function setnome($nome)
+    public function setnome($nome): self
     {
         $this->nome = $nome;
 
@@ -55,7 +55,7 @@ class Usuario
      *
      * @return  self
      */
-    public function setTel($tel)
+    public function setTel($tel): self
     {
         $this->tel = $tel;
 
@@ -75,7 +75,7 @@ class Usuario
      *
      * @return  self
      */
-    public function setsenha($senha)
+    public function setsenha($senha): self
     {
         $this->senha = $senha;
 
@@ -95,7 +95,7 @@ class Usuario
      *
      * @return  self
      */
-    public function setEmail($email)
+    public function setEmail($email): self
     {
         $this->email = $email;
 
@@ -115,7 +115,7 @@ class Usuario
      *
      * @return  self
      */
-    public function setpais($pais)
+    public function setpais($pais): self
     {
         $this->pais = $pais;
 
@@ -135,7 +135,7 @@ class Usuario
      *
      * @return  self
      */
-    public function setCpf($cpf)
+    public function setCpf($cpf): self
     {
         $this->cpf = $cpf;
 
@@ -155,7 +155,7 @@ class Usuario
      *
      * @return  self
      */
-    public function setId($id)
+    public function setId($id): self
     {
         $this->id = $id;
 
@@ -186,12 +186,33 @@ class Usuario
             $sql->bindParam("anfitriao", $anfitriao);
             $sql->bindParam("id_pais", $id_pais);
 
-
             $sql->execute();
 
             $last_id = $conn->lastInsertId();
             $this->setId($last_id);
             return $last_id;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function logar()
+    {
+        try {
+            $conn = ConexaoBD::Conexao();
+
+            $email = $this->getEmail();
+            $senha = $this->getsenha();
+
+            $sql = $conn->prepare("SELECT * FROM findinn.usuario WHERE email = " . $email . " AND senha = " . $senha . "");
+
+            $sql->execute();
+
+            $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+            while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $_SESSION['id'] = $dados['id_usuario'];
+            }
         } catch (PDOException $e) {
             return $e->getMessage();
         }

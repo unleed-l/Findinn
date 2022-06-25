@@ -1,6 +1,6 @@
 <?php
 
-require "App/Model/Usuario.php";
+require_once "App/Model/Usuario.php";
 require "IController.php";
 
 class CadastroController implements IController

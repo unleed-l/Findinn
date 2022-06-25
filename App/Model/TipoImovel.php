@@ -1,7 +1,7 @@
 <?php
 
 
-require 'ConexaoBD.php';
+require_once 'ConexaoBD.php';
 
 class TipoImovel
 {

@@ -32,9 +32,9 @@ require "page.php";
                         </div>
                         <div class="form-group pt-2">
                             <label for="pais">País</label>
-                            <!-- <input type="text" class="form-control" id="pais" placeholder="Informe o seu País" name="pais" required /> -->
-                            <select class="form-select">
-                                <option value="0" name="pais" selected>Selecione o País</option>
+                            
+                            <select class="form-select" name="pais">
+                                <option selected>Selecione o País</option>
                                 <option value="1" name="pais">Brasil</option>
                             </select>
                         </div>

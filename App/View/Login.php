@@ -1,5 +1,5 @@
 <?php
-$style = "cadastrar.css";
+$style = "cadastrar.php";
 $title = "Login";
 require "page.php";
 ?>
@@ -8,21 +8,21 @@ require "page.php";
     <nav class="ms-3">
         <div class="container justify-content-center">
             <!-- Brand -->
-            <a class="navbar-brand" href="index.html"><img src="logo.png" alt="logo" />
+            <a class="navbar-brand" href="userPage"><img src="logo.png" alt="logo" />
             </a>
         </div>
     </nav>
     <div class="container d-flex justify-content-center centralize">
         <div class="text-white mt-5 w-25">
-            <h1 class="pb-3 flex">Login de Usuário</h1>
-            <form name="cadLivro" method="post" action="incluirLivro" enctype="multipart/form-data">
+            <h1 class="pb-3 flex">Login</h1>
+            <form name="login" method="post" action="authLogin" enctype="multipart/form-data">
                 <div class="form-group pt-2">
-                    <label for="Nome">Email</label>
-                    <input type="Nome" class="form-control" id="Nome" placeholder="Informe o seu Email" name="Nome" required />
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Informe o seu Email" name="email" required />
                 </div>
                 <div class="form-group pt-2">
-                    <label for="Nome">Senha</label>
-                    <input type="Senha" class="form-control" id="Senha" placeholder="Informe a sua Senha" name="Senha" required />
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" id="senha" placeholder="Informe a sua Senha" name="senha" required />
                 </div>
                 <div class="flex">
                     <button type="submit" class="btn btn-primary">Login</button>
