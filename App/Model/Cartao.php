@@ -1,7 +1,6 @@
 <?php
 
 require_once "App/Model/Usuario.php";
-
 require_once "ConexaoBD.php";
 class Cartao
 {
@@ -149,6 +148,7 @@ class Cartao
 
             $lastIdCartao = $conn->lastInsertId();
             $this->setIdCartao($lastIdCartao);
+            $_SESSION['idCartao'] = $lastIdCartao;
             return $lastIdCartao;
         } catch (PDOException $e) {
             return $e->getMessage();

@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['id'] = -1;
 require_once "ConexaoBD.php";
 class Usuario
 {
@@ -190,6 +189,7 @@ class Usuario
 
             $last_id = $conn->lastInsertId();
             $this->setId($last_id);
+            $_SESSION['id'] = $last_id;
             return $last_id;
         } catch (PDOException $e) {
             return $e->getMessage();

@@ -9,7 +9,6 @@
 //     private $locacoes;
 //     private $comentarios;
 
-
 //     public function __construct(Usuario $locatario, Cartao $dadosCartao, array $locacoes, array $comentarios)
 //     {
 //         parent::__construct($locatario->nome, $locatario->cpf, $locatario->tel, $locatario->senha, $locatario->email, $locatario->pais);

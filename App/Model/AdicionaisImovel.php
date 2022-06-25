@@ -1,6 +1,5 @@
 <?php
 
-
 class AdicionaisImovel
 {
 
@@ -13,6 +12,7 @@ class AdicionaisImovel
     private $arCondicionado;
     private $alarmeIncendio;
     private $garagem;
+    private $idAdicionais;
 
     // public function __construct(
     //     bool $cozinha = false,
@@ -216,14 +216,49 @@ class AdicionaisImovel
         return $this;
     }
 
+    public function getIdAdicionais()
+    {
+        return $this->idAdicionais;
+    }
+
+    public function setIdAdicionais($idAdicionais)
+    {
+        $this->idAdicionais = $idAdicionais;
+        return $this;
+    }
+
     public function inserirAdicionais()
     {
-        $conn = ConexaoBD::Conexao();
+        try {
+            $conn = ConexaoBD::Conexao();
 
+            $cozinha = $this->getCozinha();
+            $jacuzzi = $this->getJacuzzi();
+            $refrigerador = $this->getRefrigerador();
+            $wifi = $this->getWifi();
+            $ar = $this->getArCondicionado();
+            $alarme = $this->getAlarmeIncendio();
+            $detector = $this->getDetectorFumaca();
 
+            $sql = $conn->prepare('INSERT INTO findinn.adicional_acomodacao (cozinha,jacuzzi,refrigerador,wifi,ar,alarme,detector) VALUES (:cozinha,:jacuzzi,:refrigerador,:wifi,:ar,:alarme,:detector)');
 
-        $sql = $conn->prepare('INSERT INTO findinn.adicional_acomodacao (tipo_adicional) VALUES (:tipoAdicional)');
+            $sql->bindParam('cozinha', $cozinha, PDO::PARAM_INT);
+            $sql->bindParam('jacuzzi', $jacuzzi, PDO::PARAM_INT);
+            $sql->bindParam('refrigerador', $refrigerador, PDO::PARAM_INT);
+            $sql->bindParam('wifi', $wifi, PDO::PARAM_INT);
+            $sql->bindParam('ar', $ar, PDO::PARAM_INT);
+            $sql->bindParam('alarme', $alarme, PDO::PARAM_INT);
+            $sql->bindParam('detector', $detector, PDO::PARAM_INT);
 
-        $sql->bindParam('tipoAdicional', $tipoAdicional);
+            $sql->execute();
+
+            $lastIdAdicionais = $conn->lastInsertId();
+            $_SESSION['idAdicionais'] = $lastIdAdicionais;
+            $this->setIdAdicionais($lastIdAdicionais);
+
+            return $lastIdAdicionais;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
     }
 }

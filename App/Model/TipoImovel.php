@@ -1,6 +1,5 @@
 <?php
 
-
 require_once 'ConexaoBD.php';
 
 class TipoImovel
@@ -44,7 +43,7 @@ class TipoImovel
     {
         return $this->lastIdTipoImovel;
     }
-    
+
     public function inserirTipoImovel()
     {
         try
@@ -61,11 +60,10 @@ class TipoImovel
 
             $lastIdTipoImovel = $conn->lastInsertId();
             $this->setIdTipo($lastIdTipoImovel);
-
+            $_SESSION['idTipoImovel'] = $lastIdTipoImovel;
             return $lastIdTipoImovel;
 
-        }catch (PDOException $e)
-        {
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
     }

@@ -240,7 +240,7 @@ class Imovel
     /**
      * Get the value of tipoImovel
      */
-    public function getTipoImovel(): TipoImovel
+    public function getTipoImovel()
     {
         return $this->tipoImovel;
     }
@@ -250,7 +250,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setTipoImovel(TipoImovel $tipoImovel)
+    public function setTipoImovel($tipoImovel)
     {
         $this->tipoImovel = $tipoImovel;
 
@@ -280,7 +280,7 @@ class Imovel
     /**
      * Get the value of adicionaisImovel
      */
-    public function getAdicionaisImovel(): AdicionaisImovel
+    public function getAdicionaisImovel()
     {
         return $this->adicionaisImovel;
     }
@@ -290,7 +290,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setAdicionaisImovel(AdicionaisImovel $adicionaisImovel)
+    public function setAdicionaisImovel($adicionaisImovel)
     {
         $this->adicionaisImovel = $adicionaisImovel;
 
@@ -372,6 +372,7 @@ class Imovel
 
             $idPais = $conn->lastInsertId();
             $this->setIdPais($idPais);
+            $_SESSION['idPais'] = $idPais;
             return $idPais;
         } catch (PDOException $e) {
             return $e->getMessage();
@@ -396,6 +397,7 @@ class Imovel
 
             $idEstado = $conn->lastInsertId();
             $this->setIdEstado($idEstado);
+            $_SESSION['idEstado'] = $idEstado;
             return $idEstado;
         } catch (PDOException $e) {
             return $e->getMessage();
@@ -420,6 +422,7 @@ class Imovel
 
             $idCidade = $conn->lastInsertId();
             $this->setIdCidade($idCidade);
+            $_SESSION['idCidade'] = $idCidade;
             return $idCidade;
         } catch (PDOException $e) {
             return $e->getMessage();
@@ -434,18 +437,20 @@ class Imovel
 
             // $usuario = Imovel::getAnfitriao();
             $usuario = $this->getAnfitriao();
-            $cidade = $this->getCidade();
+            $cidade = $this->getIdCidade();
             $cep = $this->getCep();
             $rua = $this->getRua();
             $numero = $this->getNumero();
             $complemento = $this->getComplemento();
             $diaria = $this->getDiaria();
-            $imgPrincipal = $this->getImagens();
+            $imgPrincipal = "1";
             $descricao = $this->getDescricao();
             $capacidade = $this->getCapacidadeMaxima();
             $tipoAcomodacao = $this->getTipoImovel();
+            $idAdicional = $this->getAdicionaisImovel();
+            $imgSecundaria = "1";
 
-            $sql = $conn->prepare('INSERT INTO findinn.acomodacao (id_usuario, id_cidade, cep, rua, numero, complemento, valor_diaria, imagem_principal, descricao, capacidade, id_tipo_acomodacao) VALUES (:usuario,:cidade:,:cep,:rua,:numero,:complemento,:diaria,:imgPrincipal,:descricao,:capacidade,:tipoAcomodacao)');
+            $sql = $conn->prepare('INSERT INTO findinn.acomodacao (id_usuario, id_cidade, cep, rua, numero, complemento, valor_diaria, imagem_principal, imagem_secundaria, descricao, capacidade, id_tipo_acomodacao, id_adicional_acomodacao) VALUES (:usuario, :cidade, :cep, :rua, :numero, :complemento, :diaria, :imgPrincipal, :imgSecundaria, :descricao, :capacidade, :tipoAcomodacao, :idAdicional)');
 
             $sql->bindParam("usuario", $usuario);
             $sql->bindParam("cidade", $cidade);
@@ -458,11 +463,26 @@ class Imovel
             $sql->bindParam("descricao", $descricao);
             $sql->bindParam("capacidade", $capacidade);
             $sql->bindParam("tipoAcomodacao", $tipoAcomodacao);
+            $sql->bindParam("idAdicional", $idAdicional);
+            $sql->bindParam("imgSecundaria", $imgSecundaria);
 
             $sql->execute();
 
             $lastIdImovel = $conn->lastInsertId();
             $this->setIdImovel($lastIdImovel);
+            $_SESSION['idImovel'] = $lastIdImovel;
+
+            $imagem = $this->getImagens();
+            if ($imagem != null) {
+                $imgPrincipalFinal = 'Principal' . $lastIdImovel . '.jpg';
+                //move o arquivo para a pasta atual com esse novo nome
+                if (move_uploaded_file($imagem['tmp_name'], dirname(dirname(__FILE__)) . '\View\assets\\' . $imgPrincipalFinal)) {
+                    $sql = $conn->prepare('UPDATE findinn.acomodacao SET imagem_principal = :nomeImagem WHERE id_acomodacao = :lastIdImovel');
+                    $sql->bindParam("nomeImagem", $imgPrincipalFinal);
+                    $sql->bindParam("lastIdImovel", $lastIdImovel);
+                    $sql->execute();
+                }
+            }
             return $lastIdImovel;
         } catch (PDOException $e) {
             return $e->getMessage();
