@@ -16,7 +16,6 @@
 //     private $cancelamento;
 //     private $multa;
 
-
 //     function __construct(Anfitriao $anfitriao, Locatario $locatario, Imovel $imovel, string $dataInicioLocacao, string $dataFimLocacao, bool $checkIn, bool $checkOut, bool $cancelamento, float $multa)
 //     {
 //         $this->anfitriao = $anfitriao;

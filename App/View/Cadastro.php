@@ -9,7 +9,7 @@ require "page.php";
         <nav>
             <div class="container justify-content-center">
                 <!-- Brand -->
-                <a class="navbar-brand" href="Home"><img src="logo.png" alt="logo" />
+                <a class="navbar-brand" href="Home"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" />
                 </a>
             </div>
         </nav>

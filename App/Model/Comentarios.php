@@ -1,6 +1,5 @@
 <?php
 
-
 // class Comentario
 // {
 //     private $cometario;

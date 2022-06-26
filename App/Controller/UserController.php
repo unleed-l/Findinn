@@ -11,7 +11,6 @@ class UserController implements IController
     public function __construct()
     {
         $this->usuario = new Usuario();
-        $this->imovel = new Usuario();
     }
 
     public function Controller()

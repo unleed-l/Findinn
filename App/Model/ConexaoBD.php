@@ -1,6 +1,5 @@
 <?php
 
-
 class ConexaoBD
 {
     public static function Conexao()
