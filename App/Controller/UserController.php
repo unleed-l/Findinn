@@ -16,14 +16,12 @@ class UserController implements IController
 
     public function Controller()
     {
-        $pais = addslashes($_POST['pais']);
-
         $this->usuario->setnome($_POST['nome']);
         $this->usuario->setCpf($_POST['cpf']);
         $this->usuario->setTel($_POST['telefone']);
         $this->usuario->setsenha($_POST['senha']);
         $this->usuario->setEmail($_POST['email']);
-        $this->usuario->setpais($pais);
+        $this->usuario->setpais(addslashes($_POST['pais']));
 
         $this->usuario->cadastrarUsuario();
 

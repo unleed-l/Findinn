@@ -7,8 +7,8 @@ class ConexaoBD
     {
         $servername = "localhost:3306";
         $dbname = "findinn";
-        $username = "jeoston";
-        $password = "14029510";
+        $username = "root";
+        $password = "123456";
 
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

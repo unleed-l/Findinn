@@ -204,15 +204,28 @@ class Usuario
             $email = $this->getEmail();
             $senha = $this->getsenha();
 
-            $sql = $conn->prepare("SELECT * FROM findinn.usuario WHERE email = " . $email . " AND senha = " . $senha . "");
+            $sql = $conn->prepare("SELECT * FROM findinn.usuario WHERE email = :email AND senha = :senha");
+
+            $sql->bindParam("email", $email);
+            $sql->bindParam("senha", $senha);
 
             $sql->execute();
 
-            $sql->setFetchMode(PDO::FETCH_ASSOC);
+            if ($sql->rowCount() > 0){
+                $dados = $sql->fetch();
 
-            while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
-                $_SESSION['id'] = $dados['id_usuario'];
+                $_SESSION['idUsuario'] = $dados['id_usuario'];
+
+                return true;
+            }else{
+                return false;
             }
+
+            // $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+            // while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
+            //     $_SESSION['id'] = $dados['id_usuario'];
+            // }
         } catch (PDOException $e) {
             return $e->getMessage();
         }

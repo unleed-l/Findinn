@@ -9,7 +9,7 @@ if (isset($_GET['url'])) {
             $HomeController = new HomeController();
             $HomeController->Controller();
             break;
-        case "LOGAR":
+        case "LOGIN":
             require "App/Controller/LoginPageController.php";
             $LoginPageController = new LoginPageController();
             $LoginPageController->Controller();
