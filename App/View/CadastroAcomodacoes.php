@@ -11,7 +11,7 @@ require 'page.php';
             <div class="">
                 <nav>
                     <div class="ps-5 pt-4">
-                        <a href="UserPage"><img src="logo.png" alt="logo" /></a>
+                        <a href="UserPage"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" /></a>
                     </div>
                 </nav>
             </div>
@@ -99,10 +99,10 @@ require 'page.php';
 
                                     <select id="tipoResidencia" name="tipoResidencia" class="form-control">
                                         <option value="0" selected>Categoria</option>
-                                        <option value="1" name="tipoResidencia">Casa</option>
-                                        <option value="1" name="tipoResidencia">Fazenda</option>
-                                        <option value="1" name="tipoResidencia">Quarto</option>
-                                        <option value="1" name="tipoResidencia">Apartamento</option>
+                                        <option value="Casa" name="tipoResidencia">Casa</option>
+                                        <option value="Fazenda" name="tipoResidencia">Fazenda</option>
+                                        <option value="Quarto" name="tipoResidencia">Quarto</option>
+                                        <option value="Apartamento" name="tipoResidencia">Apartamento</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
@@ -152,7 +152,7 @@ require 'page.php';
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-4 ps-1 me-3">
                                     <label for="imagemImovel">Imagem</label>
-                                    <input type="file" id="imagemImovel" name="imagemImovel" accept="image/png, image/jpeg" />
+                                    <input type="text" id="imagemImovel" name="imagemImovel" class="form-control"/>
                                 </div>
                             </div>
                             <div class="form-group col-md-2 mt-1">

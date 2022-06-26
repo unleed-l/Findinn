@@ -443,7 +443,7 @@ class Imovel
             $numero = $this->getNumero();
             $complemento = $this->getComplemento();
             $diaria = $this->getDiaria();
-            $imgPrincipal = "1";
+            $imgPrincipal = $this->getImagens();
             $descricao = $this->getDescricao();
             $capacidade = $this->getCapacidadeMaxima();
             $tipoAcomodacao = $this->getTipoImovel();
@@ -472,20 +472,81 @@ class Imovel
             $this->setIdImovel($lastIdImovel);
             $_SESSION['idImovel'] = $lastIdImovel;
 
-            $imagem = $this->getImagens();
-            if ($imagem != null) {
-                $imgPrincipalFinal = 'Principal' . $lastIdImovel . '.jpg';
-                //move o arquivo para a pasta atual com esse novo nome
-                if (move_uploaded_file($imagem['tmp_name'], dirname(dirname(__FILE__)) . '\View\assets\\' . $imgPrincipalFinal)) {
-                    $sql = $conn->prepare('UPDATE findinn.acomodacao SET imagem_principal = :nomeImagem WHERE id_acomodacao = :lastIdImovel');
-                    $sql->bindParam("nomeImagem", $imgPrincipalFinal);
-                    $sql->bindParam("lastIdImovel", $lastIdImovel);
-                    $sql->execute();
-                }
-            }
+            // $imagem = $this->getImagens();
+            // if ($imagem != null) {
+            //     $imgPrincipalFinal = 'Principal' . $lastIdImovel . '.jpg';
+            //     //move o arquivo para a pasta atual com esse novo nome
+            //     if (move_uploaded_file($imagem['tmp_name'], dirname(dirname(__FILE__)) . '\View\assets\\' . $imgPrincipalFinal)) {
+            //         $sql = $conn->prepare('UPDATE findinn.acomodacao SET imagem_principal = :nomeImagem WHERE id_acomodacao = :lastIdImovel');
+            //         $sql->bindParam("nomeImagem", $imgPrincipalFinal);
+            //         $sql->bindParam("lastIdImovel", $lastIdImovel);
+            //         $sql->execute();
+            //     }
+            // }
             return $lastIdImovel;
         } catch (PDOException $e) {
             return $e->getMessage();
+        }
+    }
+
+    public function listarImovel()
+    {
+        //vai ao banco de dados e pega todos os acomodacaos
+        try {
+           
+            $conn = ConexaoBD::Conexao();
+            $sql = $conn->prepare('SELECT * FROM findinn.acomodacao WHERE id_usuario = :idUsuario');
+            $sql->bindParam('idUsuario',$_SESSION['id']);
+            $sql->execute();
+
+            $lista = array();
+            $i = 0;
+
+            
+            while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $acomodacao = new Imovel();
+                $acomodacao->setIdImovel($dados['id_acomodacao']);
+                $acomodacao->setAnfitriao($dados['id_usuario']);
+                $acomodacao->setIdCidade($dados['id_cidade']);
+                $acomodacao->setCep($dados['cep']);
+                $acomodacao->setRua($dados['rua']);
+                $acomodacao->setNumero($dados['numero']);
+                $acomodacao->setComplemento($dados['complemento']);
+                $acomodacao->setDiaria($dados['valor_diaria']);
+                $acomodacao->setImagens($dados['imagem_principal']);
+                $acomodacao->setDescricao($dados['descricao']);
+                $acomodacao->setCapacidadeMaxima($dados['capacidade']);
+                $acomodacao->setTipoImovel($dados['id_tipo_acomodacao']);
+                $acomodacao->setAdicionaisImovel($dados['id_adicional_acomodacao']);
+
+                $lista[$i] = $acomodacao;
+                $i++;
+            }
+
+            // for ($j = 0; $j < count($lista); $j++) {
+            //     $caracteristicas = array();
+            //     $minhaConexao = Conexao::getConexao();
+            //     $id = $lista[$j]->getId();
+            //     $sql = $minhaConexao->prepare("
+            //             select * from acomodacao inner join
+            //             acomodacao_has_caracteristica on idacomodacao = acomodacao_idacomodacao
+            //             inner join caracteristica
+            //             on caracteristica_idcaracteristica = idcaracteristica where idacomodacao = '$id';
+            //             ");
+            //     $sql->execute();
+            //     $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+            //     $i = 0;
+            //     while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
+            //         $carac = $dados['caracteristica'];
+            //         $caracteristicas[$i] = $carac;
+            //         $i++;
+            //     }
+            //     $lista[$j] = array($lista[$j], $caracteristicas);
+            // };
+
+            return $lista;
+        } catch (PDOException $e) {
+            return array();
         }
     }
 }

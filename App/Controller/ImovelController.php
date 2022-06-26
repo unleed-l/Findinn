@@ -93,13 +93,10 @@ class ImovelController implements IController
         $this->imovel->setTipoImovel($_SESSION['idTipoImovel']);
         $this->imovel->setDiaria($_POST['diariaImovel']);
 
-        $this->imovel->setImagens($_FILES['imagemImovel']);
+        $this->imovel->setImagens($_POST['imagemImovel']);
         $this->imovel->setDescricao($_POST['descricaoImovel']);
 
         $this->imovel->cadastrarImovel();
-
-        echo var_dump($this->imovel->setImagens($_FILES['imagemImovel']));
-        echo var_dump($this->imovel->getImagens());
         require_once "App/View/UserPage.php";
     }
 
