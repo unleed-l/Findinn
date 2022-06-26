@@ -212,7 +212,7 @@ class Usuario
             $sql->execute();
 
             if ($sql->rowCount() > 0){
-                $dados = $sql->fetch();
+                $dados = $sql->fetch(PDO::FETCH_ASSOC);
 
                 $_SESSION['idUsuario'] = $dados['id_usuario'];
 
@@ -220,12 +220,6 @@ class Usuario
             }else{
                 return false;
             }
-
-            // $sql->setFetchMode(PDO::FETCH_ASSOC);
-
-            // while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
-            //     $_SESSION['id'] = $dados['id_usuario'];
-            // }
         } catch (PDOException $e) {
             return $e->getMessage();
         }
