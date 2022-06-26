@@ -230,4 +230,9 @@ class Usuario
             return $e->getMessage();
         }
     }
+
+    public function logout()
+    {
+        session_destroy();
+    }
 }

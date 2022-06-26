@@ -17,7 +17,7 @@ $logo = 'logo.png';
                 <a class="nav-link linksNav" href="MinhasLocacoes">Minhas Locações</a>
             </li>
             <li class="nav-item mx-2">
-                <a class="nav-link linksNav" href="Sair">Sair</a>
+                <a class="nav-link linksNav" href="logout">Sair</a>
             </li>
         </ul>
     </div>

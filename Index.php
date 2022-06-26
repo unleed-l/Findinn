@@ -14,6 +14,11 @@ if (isset($_GET['url'])) {
             $LoginPageController = new LoginPageController();
             $LoginPageController->Controller();
             break;
+        case "LOGOUT":
+            require "App/Controller/LogoutController.php";
+            $LogoutController = new LogoutController();
+            $LogoutController->Controller();
+            break;
         case "AUTHLOGIN":
             require "App/Controller/LoginController.php";
             $LoginController = new LoginController();
