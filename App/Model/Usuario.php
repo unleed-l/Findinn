@@ -11,16 +11,6 @@ class Usuario
     private $email;
     private $pais;
 
-    // public function __construct(string $nome, string $cpf, string $tel, string $senha, string $email, string $pais)
-    // {
-    //     $this->nome = $nome;
-    //     $this->cpf = $cpf;
-    //     $this->tel = $tel;
-    //     $this->senha = $senha;
-    //     $this->email = $email;
-    //     $this->pais = $pais;
-    // }
-
     /**
      * Get the value of nome
      */

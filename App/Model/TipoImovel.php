@@ -7,11 +7,6 @@ class TipoImovel
 
     private $tipo;
 
-    // public function __construct(string $tipo)
-    // {
-    //     $this->tipo = $tipo;
-    // }
-
     /**
      * Get the value of tipo
      */

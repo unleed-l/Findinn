@@ -489,64 +489,43 @@ class Imovel
         }
     }
 
-    public function listarImovel()
-    {
-        //vai ao banco de dados e pega todos os acomodacaos
-        try {
+    // public function listarImovel()
+    // {
+    //     //vai ao banco de dados e pega todos os acomodacaos
+    //     try {
            
-            $conn = ConexaoBD::Conexao();
-            $sql = $conn->prepare('SELECT * FROM findinn.acomodacao WHERE id_usuario = :idUsuario');
-            $sql->bindParam('idUsuario',$_SESSION['id']);
-            $sql->execute();
+    //         $conn = ConexaoBD::Conexao();
+    //         $sql = $conn->prepare('SELECT * FROM findinn.acomodacao WHERE id_usuario = :idUsuario');
+    //         $sql->bindParam('idUsuario',$_SESSION['id']);
+    //         $sql->execute();
 
-            $lista = array();
-            $i = 0;
+    //         $lista = array();
+    //         $i = 0;
 
             
-            while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
-                $acomodacao = new Imovel();
-                $acomodacao->setIdImovel($dados['id_acomodacao']);
-                $acomodacao->setAnfitriao($dados['id_usuario']);
-                $acomodacao->setIdCidade($dados['id_cidade']);
-                $acomodacao->setCep($dados['cep']);
-                $acomodacao->setRua($dados['rua']);
-                $acomodacao->setNumero($dados['numero']);
-                $acomodacao->setComplemento($dados['complemento']);
-                $acomodacao->setDiaria($dados['valor_diaria']);
-                $acomodacao->setImagens($dados['imagem_principal']);
-                $acomodacao->setDescricao($dados['descricao']);
-                $acomodacao->setCapacidadeMaxima($dados['capacidade']);
-                $acomodacao->setTipoImovel($dados['id_tipo_acomodacao']);
-                $acomodacao->setAdicionaisImovel($dados['id_adicional_acomodacao']);
+    //         while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
+    //             $acomodacao = new Imovel();
+    //             $acomodacao->setIdImovel($dados['id_acomodacao']);
+    //             $acomodacao->setAnfitriao($dados['id_usuario']);
+    //             $acomodacao->setIdCidade($dados['id_cidade']);
+    //             $acomodacao->setCep($dados['cep']);
+    //             $acomodacao->setRua($dados['rua']);
+    //             $acomodacao->setNumero($dados['numero']);
+    //             $acomodacao->setComplemento($dados['complemento']);
+    //             $acomodacao->setDiaria($dados['valor_diaria']);
+    //             $acomodacao->setImagens($dados['imagem_principal']);
+    //             $acomodacao->setDescricao($dados['descricao']);
+    //             $acomodacao->setCapacidadeMaxima($dados['capacidade']);
+    //             $acomodacao->setTipoImovel($dados['id_tipo_acomodacao']);
+    //             $acomodacao->setAdicionaisImovel($dados['id_adicional_acomodacao']);
 
-                $lista[$i] = $acomodacao;
-                $i++;
-            }
+    //             $lista[$i] = $acomodacao;
+    //             $i++;
+    //         }
 
-            // for ($j = 0; $j < count($lista); $j++) {
-            //     $caracteristicas = array();
-            //     $minhaConexao = Conexao::getConexao();
-            //     $id = $lista[$j]->getId();
-            //     $sql = $minhaConexao->prepare("
-            //             select * from acomodacao inner join
-            //             acomodacao_has_caracteristica on idacomodacao = acomodacao_idacomodacao
-            //             inner join caracteristica
-            //             on caracteristica_idcaracteristica = idcaracteristica where idacomodacao = '$id';
-            //             ");
-            //     $sql->execute();
-            //     $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
-            //     $i = 0;
-            //     while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
-            //         $carac = $dados['caracteristica'];
-            //         $caracteristicas[$i] = $carac;
-            //         $i++;
-            //     }
-            //     $lista[$j] = array($lista[$j], $caracteristicas);
-            // };
-
-            return $lista;
-        } catch (PDOException $e) {
-            return array();
-        }
-    }
+    //         return $lista;
+    //     } catch (PDOException $e) {
+    //         return array();
+    //     }
+    // }
 }

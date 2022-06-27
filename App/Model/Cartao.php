@@ -11,11 +11,6 @@ class Cartao
     private $idUsuario;
     private $lastIdCartao;
 
-    // function __construct(Usuario $idUsuario)
-    // {
-    //     $this->idUsuario = $;
-    // }
-
     /**
      * Get the value of titularCartao
      */

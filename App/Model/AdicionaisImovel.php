@@ -14,27 +14,6 @@ class AdicionaisImovel
     private $garagem;
     private $idAdicionais;
 
-    // public function __construct(
-    //     bool $cozinha = false,
-    //     bool $jacuzzi = false,
-    //     bool $refrigerador = false,
-    //     bool $arCondicionado = false,
-    //     bool $camera = false,
-    //     bool $detectorFumaca = false,
-    //     bool $wifi = false,
-    //     bool $alarmeIncendio = false,
-    //     bool $garagem = false
-    // ) {
-    //     $this->cozinha = $cozinha;
-    //     $this->jacuzzi = $jacuzzi;
-    //     $this->refrigerador = $refrigerador;
-    //     $this->arCondicionado = $arCondicionado;
-    //     $this->camera = $camera;
-    //     $this->detectorFumaca = $detectorFumaca;
-    //     $this->wifi = $wifi;
-    //     $this->alarmeIncendio = $alarmeIncendio;
-    //     $this->garagem = $garagem;
-    // }
 
     /**
      * Get the value of cozinha
