@@ -80,7 +80,7 @@ require "page.php";
                         </p>
                         <div class="">
                             <div class="d-flex">
-                                <img src="namedB.jpg" class="ml-0 mr-2 img-fluidX rounded-circle w-25 mb-2 mt-2" alt="..." />
+                                
                                 <div class="d-flex flex-column">
                                     <h5 class="mt-0 mb-1 TextNames mt-2">
                                         Bianca
@@ -105,7 +105,7 @@ require "page.php";
                         </p>
                         <div class="">
                             <div class="d-flex">
-                                <img src="yuri.jpg" class="ml-0 mr-2 img-fluidX rounded-circle w-25 mb-2 mt-2" alt="..." />
+                                
                                 <div class="d-flex flex-column">
                                     <h5 class="mt-0 mb-1 TextNames mt-2">
                                         Yuri
@@ -130,7 +130,7 @@ require "page.php";
                         </p>
                         <div class="">
                             <div class="d-flex">
-                                <img src="thiago-thiago.jpg" class="ml-0 mr-2 img-fluidX rounded-circle w-25 mb-2 mt-2" alt="..." />
+                                
                                 <div class="d-flex flex-column">
                                     <h5 class="mt-0 mb-1 TextNames mt-2">
                                         Thiago
