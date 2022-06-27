@@ -448,8 +448,9 @@ class Imovel
             $capacidade = $this->getCapacidadeMaxima();
             $tipoAcomodacao = $this->getTipoImovel();
             $idAdicional = $this->getAdicionaisImovel();
+            $imgSecundaria = "1";
 
-            $sql = $conn->prepare('INSERT INTO findinn.acomodacao (id_usuario, id_cidade, cep, rua, numero, complemento, valor_diaria, imagem_principal, descricao, capacidade, id_tipo_acomodacao, id_adicional_acomodacao) VALUES (:usuario, :cidade, :cep, :rua, :numero, :complemento, :diaria, :imgPrincipal, :descricao, :capacidade, :tipoAcomodacao, :idAdicional)');
+            $sql = $conn->prepare('INSERT INTO findinn.acomodacao (id_usuario, id_cidade, cep, rua, numero, complemento, valor_diaria, imagem_principal, imagem_secundaria, descricao, capacidade, id_tipo_acomodacao, id_adicional_acomodacao) VALUES (:usuario, :cidade, :cep, :rua, :numero, :complemento, :diaria, :imgPrincipal, :imgSecundaria, :descricao, :capacidade, :tipoAcomodacao, :idAdicional)');
 
             $sql->bindParam("usuario", $usuario);
             $sql->bindParam("cidade", $cidade);
@@ -463,6 +464,7 @@ class Imovel
             $sql->bindParam("capacidade", $capacidade);
             $sql->bindParam("tipoAcomodacao", $tipoAcomodacao);
             $sql->bindParam("idAdicional", $idAdicional);
+            $sql->bindParam("imgSecundaria", $imgSecundaria);
 
             $sql->execute();
 
