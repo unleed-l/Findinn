@@ -214,7 +214,7 @@ class Usuario
             if ($sql->rowCount() > 0){
                 $dados = $sql->fetch(PDO::FETCH_ASSOC);
 
-                $_SESSION['idUsuario'] = $dados['id_usuario'];
+                $_SESSION['id'] = $dados['id_usuario'];
 
                 return true;
             }else{
