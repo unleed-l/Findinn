@@ -2,9 +2,9 @@
 require "IController.php";
 require_once "App/Model/Cartao.php";
 require_once "App/Model/Usuario.php";
-require_once 'App/Model/Imovel.php';
-require_once 'App/Model/AdicionaisImovel.php';
-require_once 'App/Model/TipoImovel.php';
+require_once "App/Model/Imovel.php";
+require_once "App/Model/AdicionaisImovel.php";
+require_once "App/Model/TipoImovel.php";
 
 class ImovelController implements IController
 {
@@ -96,8 +96,10 @@ class ImovelController implements IController
         $this->imovel->setImagens($_POST['imagemImovel']);
         $this->imovel->setDescricao($_POST['descricaoImovel']);
 
-        $this->imovel->cadastrarImovel();
-        require_once "App/View/UserPage.php";
+        $result = $this->imovel->cadastrarImovel();
+
+        var_dump($result);
+        // require_once "App/View/UserPage.php";
     }
 
 }
