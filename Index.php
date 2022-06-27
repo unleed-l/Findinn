@@ -54,6 +54,16 @@ if (isset($_GET['url'])) {
             $AcomodacoesController = new AcomodacoesController();
             $AcomodacoesController->Controller();
             break;
+        case "RESERVAR":
+            require "App/Controller/ReservaController.php";
+            $ReservaController = new ReservaController();
+            $ReservaController->Controller();
+            break;
+        case "IMOVELRESERVADO":
+            require "App/Controller/ImovelReservadoController.php";
+            $ImovelReservadoController = new ImovelReservadoController();
+            $ImovelReservadoController->Controller();
+            break;
         // case "TESTE":
         //     require "App/View/teste.php";
         //     break;
