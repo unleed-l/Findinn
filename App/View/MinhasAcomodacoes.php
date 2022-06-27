@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="UserPage"><img src='<?php echo 'App/View/assets/logo.png';?>'
                     alt="logo" /></a>
-            <h5 class="text-white"><?php var_dump($_SESSION['idTipoImovel']);?></h5>
+            <!-- <h5 class="text-white"></h5> -->
         </div>
     </nav>
 
