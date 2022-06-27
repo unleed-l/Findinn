@@ -52,7 +52,7 @@ class TipoImovel
 
             $tipoImovel = $this->getTipo();
 
-            $sql = $conn->prepare('INSERT INTO findinn.tipo_acomodacao (descricao) VALUES (:tipoImovel)');
+            $sql = $conn->prepare('INSERT INTO findinn.tipo_acomodacao (tipo) VALUES (:tipoImovel)');
 
             $sql->bindParam('tipoImovel', $tipoImovel);
 
@@ -61,6 +61,8 @@ class TipoImovel
             $lastIdTipoImovel = $conn->lastInsertId();
             $this->setIdTipo($lastIdTipoImovel);
             $_SESSION['idTipoImovel'] = $lastIdTipoImovel;
+            setcookie('idTipoImovel',$conn->lastInsertId());
+
             return $lastIdTipoImovel;
 
         } catch (PDOException $e) {

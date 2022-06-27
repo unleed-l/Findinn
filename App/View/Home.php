@@ -43,13 +43,16 @@ require "page.php";
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?" alt="Los Angeles" class="d-block" style="width: 100%" />
+                    <img src="https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?" alt="Los Angeles"
+                        class="d-block" style="width: 100%" />
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?" alt="Chicago" class="d-block" style="width: 100%" />
+                    <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?" alt="Chicago"
+                        class="d-block" style="width: 100%" />
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1590856029620-9b5a4825d3be?" alt="Nicaragua" class="d-block" style="width: 100%" />
+                    <img src="https://images.unsplash.com/photo-1590856029620-9b5a4825d3be?" alt="Nicaragua"
+                        class="d-block" style="width: 100%" />
                 </div>
             </div>
 
@@ -68,7 +71,8 @@ require "page.php";
         <div class="row mt-4">
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1533654793924-4fc4949fb71e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" class="card-img-top rounded" alt="..." />
+                    <img src="https://images.unsplash.com/photo-1533654793924-4fc4949fb71e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+                        class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
                             &#9733; &#9733; &#9733; &#9733; &#9733;
@@ -80,7 +84,7 @@ require "page.php";
                         </p>
                         <div class="">
                             <div class="d-flex">
-                                
+
                                 <div class="d-flex flex-column">
                                     <h5 class="mt-0 mb-1 TextNames mt-2">
                                         Bianca
@@ -94,7 +98,8 @@ require "page.php";
             </div>
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1520908695049-da13395b27a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80" class="card-img-top rounded" alt="..." />
+                    <img src="https://images.unsplash.com/photo-1520908695049-da13395b27a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
+                        class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
                             &#9733; &#9733; &#9733; &#9733; &#9733;
@@ -105,7 +110,7 @@ require "page.php";
                         </p>
                         <div class="">
                             <div class="d-flex">
-                                
+
                                 <div class="d-flex flex-column">
                                     <h5 class="mt-0 mb-1 TextNames mt-2">
                                         Yuri
@@ -119,7 +124,8 @@ require "page.php";
             </div>
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="card-img-top rounded" alt="..." />
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                        class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
                             &#9733; &#9733; &#9733; &#9733; &#9733;
@@ -130,7 +136,7 @@ require "page.php";
                         </p>
                         <div class="">
                             <div class="d-flex">
-                                
+
                                 <div class="d-flex flex-column">
                                     <h5 class="mt-0 mb-1 TextNames mt-2">
                                         Thiago

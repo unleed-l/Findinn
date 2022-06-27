@@ -21,51 +21,61 @@ require 'page.php';
             <div class="mt-2">
                 <section class="d-flex  justify-content-center">
                     <div class="w-50">
-                        <form name="cadastroImovel" method="post" action="IMOVELPAGE" class="form-div" enctype="multipart/form-data">
+                        <form name="cadastroImovel" method="post" action="IMOVELPAGE" class="form-div"
+                            enctype="multipart/form-data">
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-12">
                                     <label for="nomeCartao">Nome do Cartão</label>
-                                    <input type="text" name="nomeCartao" class="form-control" id="nomeCartao" placeholder="titular do cartão" required />
+                                    <input type="text" name="nomeCartao" class="form-control" id="nomeCartao"
+                                        placeholder="titular do cartão" required />
                                 </div>
                             </div>
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-6">
                                     <label for="numeroCartao">Numero do Cartão</label>
-                                    <input type="number" name="numeroCartao" class="form-control" id="numeroCartao" placeholder="1234.5555.664.789" required />
+                                    <input type="number" name="numeroCartao" class="form-control" id="numeroCartao"
+                                        placeholder="1234.5555.664.789" required />
                                 </div>
                                 <div class="form-group col-md-3 ps-1">
                                     <label for="validadeCartao">Validade</label>
-                                    <input type="date" name="validadeCartao" class="form-control" id="validadeCartao" required />
+                                    <input type="date" name="validadeCartao" class="form-control" id="validadeCartao"
+                                        required />
                                 </div>
                                 <div class="form-group col-md-3 ps-1">
                                     <label for="cvvCartao">CVV</label>
-                                    <input type="number" name="cvvCartao" class="form-control" id="cvvCartao" placeholder="192" required />
+                                    <input type="number" name="cvvCartao" class="form-control" id="cvvCartao"
+                                        placeholder="192" required />
                                 </div>
                             </div>
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-6">
                                     <label for="cepImovel">CEP</label>
-                                    <input type="number" name="cepImovel" class="form-control" id="cepImovel" placeholder="20.20-20" required />
+                                    <input type="number" name="cepImovel" class="form-control" id="cepImovel"
+                                        placeholder="20.20-20" required />
                                 </div>
                                 <div class="form-group col-md-6 ps-1">
                                     <label for="ruaImovel">Rua</label>
-                                    <input type="text" name="ruaImovel" class="form-control" id="ruaImovel" placeholder="Rua dos Bobos" required />
+                                    <input type="text" name="ruaImovel" class="form-control" id="ruaImovel"
+                                        placeholder="Rua dos Bobos" required />
                                 </div>
                             </div>
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-6">
                                     <label for="numeroImovel">Número</label>
-                                    <input type="number" name="numeroImovel" class="form-control" id="numeroImovel" placeholder="nº 0" required />
+                                    <input type="number" name="numeroImovel" class="form-control" id="numeroImovel"
+                                        placeholder="nº 0" required />
                                 </div>
                                 <div class="form-group col-md-6 ps-1">
                                     <label for="compImovel">Complemento</label>
-                                    <input type="text" name="compImovel" class="form-control" id="compImovel" placeholder="2° Andar" />
+                                    <input type="text" name="compImovel" class="form-control" id="compImovel"
+                                        placeholder="2° Andar" />
                                 </div>
                             </div>
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-4">
                                     <label for="cidadeImovel">Cidade</label>
-                                    <input type="text" name="cidadeImovel" class="form-control" id="cidadeImovel" placeholder="Salvador" required />
+                                    <input type="text" name="cidadeImovel" class="form-control" id="cidadeImovel"
+                                        placeholder="Salvador" required />
                                     <!-- <select name="cidadeImovel" class="form-control">
                                         <option value="0" selected>-</option>
                                         <option value="1">Salvador</option>
@@ -75,7 +85,8 @@ require 'page.php';
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
                                     <label for="estadoImovel">Estado</label>
-                                    <input type="text" name="estadoImovel" class="form-control" id="estadoImovel" placeholder="Bahia" required />
+                                    <input type="text" name="estadoImovel" class="form-control" id="estadoImovel"
+                                        placeholder="Bahia" required />
                                     <!-- <select name="estadoImovel" class="form-control">
                                         <option value="0" selected>-</option>
                                         <option value="1">Bahia</option>
@@ -107,35 +118,46 @@ require 'page.php';
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
                                     <label for="capacidadeImovel">Capacidade Máxima</label>
-                                    <input type="number" name="capacidadeImovel" class="form-control" id="capacidadeImovel" placeholder="5" />
+                                    <input type="number" name="capacidadeImovel" class="form-control"
+                                        id="capacidadeImovel" placeholder="5" />
                                 </div>
                                 <div class="form-group col-md-4 ps-1">
                                     <label for="diariaImovel">Preço Diaria</label>
-                                    <input type="number" name="diariaImovel" class="form-control" id="diariaImovel" placeholder="R$ 500,00 " required />
+                                    <input type="number" name="diariaImovel" class="form-control" id="diariaImovel"
+                                        placeholder="R$ 500,00 " required />
                                 </div>
                             </div>
                             <div class="form-row mt-3 mb-3">
                                 <div class="form-group">
                                     <label for="adicionais">Adicionais</label>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="form-check-input ms-1" id="cozinha" name="cozinha" value="1" />
+                                        <input type="checkbox" class="form-check-input ms-1" id="cozinha" name="cozinha"
+                                            value="1" />
                                         <label class="custom-control-label" for="cozinha">Cozinha</label>
-                                        <input type="checkbox" class="form-check-input" id="jacuzzi" name="jacuzzi" value="1"/>
+                                        <input type="checkbox" class="form-check-input" id="jacuzzi" name="jacuzzi"
+                                            value="1" />
                                         <label class="custom-control-label" for="jacuzzi">Jacuzzi</label>
-                                        <input type="checkbox" class="form-check-input" id="refrigerador" name="refrigerador" value="1"/>
+                                        <input type="checkbox" class="form-check-input" id="refrigerador"
+                                            name="refrigerador" value="1" />
                                         <label class="custom-control-label" for="refrigerador">Refrigerador</label>
-                                        <input type="checkbox" class="form-check-input" id="wifi" name="wifi" value="1"/>
+                                        <input type="checkbox" class="form-check-input" id="wifi" name="wifi"
+                                            value="1" />
                                         <label class="custom-control-label" for="wifi">Wifi</label><br />
-                                        <input type="checkbox" class="form-check-input ms-1" id="ar" name="ar" value="1"/>
+                                        <input type="checkbox" class="form-check-input ms-1" id="ar" name="ar"
+                                            value="1" />
                                         <label class="custom-control-label" for="ar">Ar-Condicionado</label>
                                         <!-- <input type="checkbox" class="form-check-input" id="garagem" name="garagem" value="1"/>
                                         <label class="custom-control-label tamanho-label" for="garagem">Garagem</label> -->
-                                        <input type="checkbox" class="form-check-input" id="alarme" name="alarme" value="1"/>
-                                        <label class="custom-control-label tamanho-label" for="alarme">Alarme de Incêndio</label><br />
+                                        <input type="checkbox" class="form-check-input" id="alarme" name="alarme"
+                                            value="1" />
+                                        <label class="custom-control-label tamanho-label" for="alarme">Alarme de
+                                            Incêndio</label><br />
                                         <!-- <input type="checkbox" name="camera" class="form-check-input ms-1" id="camera" value="1"/>
                                         <label class="custom-control-label tamanho-label" for="camera">Câmera de Segurança</label> -->
-                                        <input type="checkbox" name="detector" class="form-check-input" id="detector" value="1"/>
-                                        <label class="custom-control-label tamanho-label" for="detector">Detector de Fumaça</label>
+                                        <input type="checkbox" name="detector" class="form-check-input" id="detector"
+                                            value="1" />
+                                        <label class="custom-control-label tamanho-label" for="detector">Detector de
+                                            Fumaça</label>
                                         <!-- <select multiple name="adicionaisImovel">
                                             <option value="0" selected>Adicionais</option>
                                             <option value="1">Cozinha</option>
@@ -152,7 +174,7 @@ require 'page.php';
                             <div class="form-row d-flex">
                                 <div class="form-group col-md-4 ps-1 me-3">
                                     <label for="imagemImovel">Imagem</label>
-                                    <input type="text" id="imagemImovel" name="imagemImovel" class="form-control"/>
+                                    <input type="text" id="imagemImovel" name="imagemImovel" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group col-md-2 mt-1">

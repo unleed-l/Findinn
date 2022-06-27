@@ -15,7 +15,7 @@ $conn = ConexaoBD::Conexao();
         <div class="container-fluid">
             <a class="navbar-brand" href="home"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" /></a>
 
-            
+
         </div>
     </nav>
 
@@ -45,7 +45,7 @@ $conn = ConexaoBD::Conexao();
                         }
                     }    
                 ?>
-        
+
         </div>
     </section>
     <?php require "footer.php"; ?>
