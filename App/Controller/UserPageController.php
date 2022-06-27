@@ -1,6 +1,6 @@
 <?php
 
-require_once "IController.php";
+require "IController.php";
 
 class UserPageController implements IController
 {

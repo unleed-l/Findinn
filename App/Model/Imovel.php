@@ -1,11 +1,7 @@
 <?php
 
-namespace App\Model;
-
-require_once 'Usuario.php';
-require_once 'ConexaoBD.php';
-
-use PDOException;
+require_once "App/Model/Usuario.php";
+require_once "ConexaoBD.php";
 
 class Imovel
 {
@@ -23,30 +19,15 @@ class Imovel
     private $capacidadeMaxima;
     private $descricao;
     private $imagens;
-    //private $idImovel;
-    //private $idCidade;
-
-    // function __construct(Usuario $anfitriao, string $cep, string $rua, string $numero, string $cidade, string $estado, string $complemento, string $diaria, TipoImovel $tipoImovel, AdicionaisImovel $adicionaisImovel, string $imagens, int $capacidadeMaxima, string $descricao)
-    // {
-    //     $this->anfitriao = $anfitriao;
-    //     $this->cep = $cep;
-    //     $this->rua = $rua;
-    //     $this->numero = $numero;
-    //     $this->cidade = $cidade;
-    //     $this->estado = $estado;
-    //     $this->complemento = $complemento;
-    //     $this->diaria = $diaria;
-    //     $this->tipoImovel = $tipoImovel;
-    //     $this->dadicionaisImovel = $adicionaisImovel;
-    //     $this->imagens = $imagens;
-    //     $this->capacidadeMaxima = $capacidadeMaxima;
-    //     $this->descricao = $descricao;
-    // }
+    private $idImovel;
+    private $idCidade;
+    private $idEstado;
+    private $idPais;
 
     /**
      * Get the value of anfitriao
      */
-    public function getAnfitriao(): Usuario
+    public function getAnfitriao()
     {
         return $this->anfitriao;
     }
@@ -56,9 +37,9 @@ class Imovel
      *
      * @return  self
      */
-    public function setAnfitriao(Usuario $anfitriao)
+    public function setAnfitriao($anfitriao): self
     {
-        $this->anfitriao = $anfitriao->getId();
+        $this->anfitriao = $anfitriao;
 
         return $this;
     }
@@ -76,7 +57,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setCep($cep)
+    public function setCep($cep): self
     {
         $this->cep = $cep;
 
@@ -96,7 +77,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setRua($rua)
+    public function setRua($rua): self
     {
         $this->rua = $rua;
 
@@ -116,7 +97,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setNumero($numero)
+    public function setNumero($numero): self
     {
         $this->numero = $numero;
 
@@ -136,7 +117,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setCidade($cidade)
+    public function setCidade($cidade): self
     {
         $this->cidade = $cidade;
 
@@ -148,7 +129,7 @@ class Imovel
         return $this->idCidade;
     }
 
-    public function setIdCidade($idCidade)
+    public function setIdCidade($idCidade): self
     {
         $this->idCidade = $idCidade;
 
@@ -168,7 +149,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setEstado($estado)
+    public function setEstado($estado): self
     {
         $this->estado = $estado;
         return $this;
@@ -179,8 +160,7 @@ class Imovel
         return $this->idEstado;
     }
 
-
-    public function setIdEstado($idEstado)
+    public function setIdEstado($idEstado): self
     {
         $this->idEstado = $idEstado;
         return $this;
@@ -199,7 +179,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setPais($pais)
+    public function setPais($pais): self
     {
         $this->pais = $pais;
 
@@ -211,7 +191,7 @@ class Imovel
         return $this->idPais;
     }
 
-    public function setIdPais($idPais)
+    public function setIdPais($idPais): self
     {
         $this->idPais = $idPais;
         return $this;
@@ -230,7 +210,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setComplemento($complemento)
+    public function setComplemento($complemento): self
     {
         $this->complemento = $complemento;
 
@@ -250,7 +230,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setDiaria($diaria)
+    public function setDiaria($diaria): self
     {
         $this->diaria = $diaria;
 
@@ -260,7 +240,7 @@ class Imovel
     /**
      * Get the value of tipoImovel
      */
-    public function getTipoImovel(): TipoImovel
+    public function getTipoImovel()
     {
         return $this->tipoImovel;
     }
@@ -270,7 +250,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setTipoImovel(TipoImovel $tipoImovel)
+    public function setTipoImovel($tipoImovel)
     {
         $this->tipoImovel = $tipoImovel;
 
@@ -300,7 +280,7 @@ class Imovel
     /**
      * Get the value of adicionaisImovel
      */
-    public function getAdicionaisImovel(): AdicionaisImovel
+    public function getAdicionaisImovel()
     {
         return $this->adicionaisImovel;
     }
@@ -310,7 +290,7 @@ class Imovel
      *
      * @return  self
      */
-    public function setAdicionaisImovel(AdicionaisImovel $adicionaisImovel)
+    public function setAdicionaisImovel($adicionaisImovel)
     {
         $this->adicionaisImovel = $adicionaisImovel;
 
@@ -356,7 +336,7 @@ class Imovel
 
         return $this;
     }
-    /** 
+    /**
      * Get the value of idImovel
      */
     public function getIdImovel()
@@ -382,31 +362,28 @@ class Imovel
         try {
             $conn = ConexaoBD::Conexao();
 
-
             $nomePais = $this->getPais();
 
             $sql = $conn->prepare('INSERT INTO findinn.pais (nome) VALUES (:nomePais)');
 
             $sql->bindParam("nomePais", $nomePais);
 
-
             $sql->execute();
 
             $idPais = $conn->lastInsertId();
             $this->setIdPais($idPais);
+            $_SESSION['idPais'] = $idPais;
             return $idPais;
         } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
 
-
     public function inserirEstado()
     {
 
         try {
             $conn = ConexaoBD::Conexao();
-
 
             $nomeEstado = $this->getEstado();
             $idPais = $this->getIdPais();
@@ -420,19 +397,18 @@ class Imovel
 
             $idEstado = $conn->lastInsertId();
             $this->setIdEstado($idEstado);
+            $_SESSION['idEstado'] = $idEstado;
             return $idEstado;
         } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
 
-
     public function inserirCidade()
     {
 
         try {
             $conn = ConexaoBD::Conexao();
-
 
             $nomeCidade = $this->getCidade();
             $idEstado = $this->getIdEstado();
@@ -446,6 +422,7 @@ class Imovel
 
             $idCidade = $conn->lastInsertId();
             $this->setIdCidade($idCidade);
+            $_SESSION['idCidade'] = $idCidade;
             return $idCidade;
         } catch (PDOException $e) {
             return $e->getMessage();
@@ -460,7 +437,7 @@ class Imovel
 
             // $usuario = Imovel::getAnfitriao();
             $usuario = $this->getAnfitriao();
-            $cidade = $this->getCidade();
+            $cidade = $this->getIdCidade();
             $cep = $this->getCep();
             $rua = $this->getRua();
             $numero = $this->getNumero();
@@ -470,8 +447,10 @@ class Imovel
             $descricao = $this->getDescricao();
             $capacidade = $this->getCapacidadeMaxima();
             $tipoAcomodacao = $this->getTipoImovel();
+            $idAdicional = $this->getAdicionaisImovel();
+            $imgSecundaria = "1";
 
-            $sql = $conn->prepare('INSERT INTO findinn.acomodacao (id_usuario, id_cidade, cep, rua, numero, complemento, valor_diaria, imagem_principal, descricao, capacidade, id_tipo_acomodacao) VALUES (:usuario,:cidade:,:cep,:rua,:numero,:complemento,:diaria,:imgPrincipal,:descricao,:capacidade,:tipoAcomodacao)');
+            $sql = $conn->prepare('INSERT INTO findinn.acomodacao (id_usuario, id_cidade, cep, rua, numero, complemento, valor_diaria, imagem_principal, imagem_secundaria, descricao, capacidade, id_tipo_acomodacao, id_adicional_acomodacao) VALUES (:usuario, :cidade, :cep, :rua, :numero, :complemento, :diaria, :imgPrincipal, :imgSecundaria, :descricao, :capacidade, :tipoAcomodacao, :idAdicional)');
 
             $sql->bindParam("usuario", $usuario);
             $sql->bindParam("cidade", $cidade);
@@ -484,14 +463,90 @@ class Imovel
             $sql->bindParam("descricao", $descricao);
             $sql->bindParam("capacidade", $capacidade);
             $sql->bindParam("tipoAcomodacao", $tipoAcomodacao);
+            $sql->bindParam("idAdicional", $idAdicional);
+            $sql->bindParam("imgSecundaria", $imgSecundaria);
 
             $sql->execute();
 
             $lastIdImovel = $conn->lastInsertId();
             $this->setIdImovel($lastIdImovel);
+            $_SESSION['idImovel'] = $lastIdImovel;
+
+            // $imagem = $this->getImagens();
+            // if ($imagem != null) {
+            //     $imgPrincipalFinal = 'Principal' . $lastIdImovel . '.jpg';
+            //     //move o arquivo para a pasta atual com esse novo nome
+            //     if (move_uploaded_file($imagem['tmp_name'], dirname(dirname(__FILE__)) . '\View\assets\\' . $imgPrincipalFinal)) {
+            //         $sql = $conn->prepare('UPDATE findinn.acomodacao SET imagem_principal = :nomeImagem WHERE id_acomodacao = :lastIdImovel');
+            //         $sql->bindParam("nomeImagem", $imgPrincipalFinal);
+            //         $sql->bindParam("lastIdImovel", $lastIdImovel);
+            //         $sql->execute();
+            //     }
+            // }
             return $lastIdImovel;
         } catch (PDOException $e) {
             return $e->getMessage();
+        }
+    }
+
+    public function listarImovel()
+    {
+        //vai ao banco de dados e pega todos os acomodacaos
+        try {
+           
+            $conn = ConexaoBD::Conexao();
+            $sql = $conn->prepare('SELECT * FROM findinn.acomodacao WHERE id_usuario = :idUsuario');
+            $sql->bindParam('idUsuario',$_SESSION['id']);
+            $sql->execute();
+
+            $lista = array();
+            $i = 0;
+
+            
+            while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
+                $acomodacao = new Imovel();
+                $acomodacao->setIdImovel($dados['id_acomodacao']);
+                $acomodacao->setAnfitriao($dados['id_usuario']);
+                $acomodacao->setIdCidade($dados['id_cidade']);
+                $acomodacao->setCep($dados['cep']);
+                $acomodacao->setRua($dados['rua']);
+                $acomodacao->setNumero($dados['numero']);
+                $acomodacao->setComplemento($dados['complemento']);
+                $acomodacao->setDiaria($dados['valor_diaria']);
+                $acomodacao->setImagens($dados['imagem_principal']);
+                $acomodacao->setDescricao($dados['descricao']);
+                $acomodacao->setCapacidadeMaxima($dados['capacidade']);
+                $acomodacao->setTipoImovel($dados['id_tipo_acomodacao']);
+                $acomodacao->setAdicionaisImovel($dados['id_adicional_acomodacao']);
+
+                $lista[$i] = $acomodacao;
+                $i++;
+            }
+
+            // for ($j = 0; $j < count($lista); $j++) {
+            //     $caracteristicas = array();
+            //     $minhaConexao = Conexao::getConexao();
+            //     $id = $lista[$j]->getId();
+            //     $sql = $minhaConexao->prepare("
+            //             select * from acomodacao inner join
+            //             acomodacao_has_caracteristica on idacomodacao = acomodacao_idacomodacao
+            //             inner join caracteristica
+            //             on caracteristica_idcaracteristica = idcaracteristica where idacomodacao = '$id';
+            //             ");
+            //     $sql->execute();
+            //     $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+            //     $i = 0;
+            //     while ($dados = $sql->fetch(PDO::FETCH_ASSOC)) {
+            //         $carac = $dados['caracteristica'];
+            //         $caracteristicas[$i] = $carac;
+            //         $i++;
+            //     }
+            //     $lista[$j] = array($lista[$j], $caracteristicas);
+            // };
+
+            return $lista;
+        } catch (PDOException $e) {
+            return array();
         }
     }
 }

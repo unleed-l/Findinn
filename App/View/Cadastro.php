@@ -1,5 +1,5 @@
 <?php
-$style = "cadastrar.css";
+$style = "cadastrar.php";
 $title = "Cadastro";
 require "page.php";
 ?>
@@ -9,7 +9,7 @@ require "page.php";
         <nav>
             <div class="container justify-content-center">
                 <!-- Brand -->
-                <a class="navbar-brand" href="Home"><img src="logo.png" alt="logo" />
+                <a class="navbar-brand" href="Home"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" />
                 </a>
             </div>
         </nav>
@@ -17,7 +17,7 @@ require "page.php";
             <div class="container-fluid d-flex justify-content-center mt-5">
                 <div class="text-white mt-5 w-25">
                     <h1 class="pb-3 flex">Cadastro de Usuário</h1>
-                    <form name="cadastrarUser" method="POST" action="USERPAGE" enctype="multipart/form-data">
+                    <form name="cadastrarUser" method="POST" action="AUTHUSER" enctype="multipart/form-data">
                         <div class="form-group pt-2">
                             <label for="nome">Nome</label>
                             <input type="text" class="form-control" id="nome" placeholder="Informe o seu Nome" name="nome" required />
@@ -32,7 +32,11 @@ require "page.php";
                         </div>
                         <div class="form-group pt-2">
                             <label for="pais">País</label>
-                            <input type="text" class="form-control" id="pais" placeholder="Informe o seu País" name="pais" required />
+                            
+                            <select class="form-select" name="pais">
+                                <option selected>Selecione o País</option>
+                                <option value="1" name="pais">Brasil</option>
+                            </select>
                         </div>
                         <div class="form-group pt-2">
                             <label for="email">Email</label>

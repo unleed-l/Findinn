@@ -13,7 +13,7 @@ $conn = ConexaoBD::Conexao();
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="UserPage"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" /></a>
+            <a class="navbar-brand" href="home"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" /></a>
 
             
         </div>
@@ -40,7 +40,6 @@ $conn = ConexaoBD::Conexao();
                     if ($sql->rowCount() >0 && $sql2->rowCount() >0 ){
                         while($dados = $sql->fetch(PDO::FETCH_ASSOC && $dados2 = $sql2->fetch(PDO::FETCH_ASSOC))){ 
                             echo "<div class='col'><div class='card h-100'><img src='{$dados['imagem_principal']}' class='card-img-top'/><div class='card-body'><h5 class='card-title'>{$dados2['tipo']}</h5><p class='card-text'>{$dados['descricao']}</p></div><div class='card-footer'><p class='text-muted'><strong class='text-dark'>A partir de {$dados['valor_diaria']}</strong></p><div class='d-flex justify-content-center'>
-                            <form action='Reservar' method='post' enctype='multipart/form'><button type='submit' class='btn btn-primary' name='Reservar' value='{$dados['id_acomodacao']}'>Reservar</button>
                             </div></div></div></div>";
                            
                         }

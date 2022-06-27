@@ -1,12 +1,30 @@
 <?php
 
-//testa a variável url que veio lá do htaccess
-if (isset($_GET['url'])) //se estiver preenchida, pega o valor
-{
-    $url =  strtoupper($_GET['url']);
+if (isset($_GET['url'])) {
+    $url = strtoupper($_GET['url']);
     // echo $url;
     switch ($url) {
-        case "AUTHUSER":
+        case "HOME":
+            require "App/Controller/HomeController.php";
+            $HomeController = new HomeController();
+            $HomeController->Controller();
+            break;
+        case "LOGIN":
+            require "App/Controller/LoginPageController.php";
+            $LoginPageController = new LoginPageController();
+            $LoginPageController->Controller();
+            break;
+        case "LOGOUT":
+            require "App/Controller/LogoutController.php";
+            $LogoutController = new LogoutController();
+            $LogoutController->Controller();
+            break;
+        case "AUTHLOGIN":
+            require "App/Controller/LoginController.php";
+            $LoginController = new LoginController();
+            $LoginController->Controller();
+            break;
+        case "USERPAGE":
             require "App/Controller/UserPageController.php";
             $UserPageController = new UserPageController();
             $UserPageController->Controller();
@@ -16,50 +34,50 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
             $CadastroController = new CadastroController();
             $CadastroController->Controller();
             break;
-        case "USERPAGE":
+        case "AUTHUSER":
             require "App/Controller/UserController.php";
-            $userController = new UserController();
-            $userController->Controller();
+            $UserController = new UserController();
+            $UserController->Controller();
             break;
-        case "TESTE":
-            require "App/View/teste.php";
+        case "CADASTRARACOMODACAO":
+            require "App/Controller/ImovelPageController.php";
+            $ImovelPage = new ImovelPageController();
+            $ImovelPage->Controller();
             break;
-
-            // case "USERPAGE":
-            //     require "Controller/UserPageController.php";
-            //     $UserController = new UserPageController();
-            //     $UserController->Controller();
-            //     break;
-            // case "CADASTRARACOMODACAO":
-            //     require "Controller/CadastroAcomodacaoController.php";
-            //     $CadastrarAcomodacao = new CadastroAcomodacaoController();
-            //     $CadastrarAcomodacao->Controller();
-            //     $CadastrarAcomodacao->CadastrarAcomodacao();
-            //     break;
-            // case "LOGIN":
-            //     require "Controller/LoginController.php";
-            //     $LoginController = new LoginController();
-            //     $LoginController->Controller();
-            //     break;
-            // case "ACOMODACOES":
-            //     require "Controller/AcomodacaoController.php";
-            //     $AcomodacaoController = new AcomodacaoController();
-            //     $AcomodacaoController->Controller();
-            //     break;
-            // case "ALTERARLIVRO":
-            //     require "Controller/ControladorLivroAlterar.php";
-            //     $controlador = new ControladorLivroAlterar();
-            //     $controlador->processaRequisicao();
-            //     break;
-            // case "LISTARLIVRO":
-            //     require "Controller/ControladorLivroListar.php";
-            //     $controlador = new ControladorLivroListar();
-            //     $controlador->processaRequisicao();
-            //     break;
+        case "IMOVELPAGE":
+            require "App/Controller/ImovelController.php";
+            $ImovelController = new ImovelController();
+            $ImovelController->Controller();
+            break;
+        case "MINHASACOMODACOES":
+            require "App/Controller/MinhasAcomomodacoesController.php";
+            $AcomodaçãoController = new MinhasAcomomodacoesController();
+            $AcomodaçãoController->Controller();
+            break;
+        case "ACOMODACOES":
+            require "App/Controller/AcomodacoesController.php";
+            $AcomodacoesController = new AcomodacoesController();
+            $AcomodacoesController->Controller();
+            break;
+        case "RESERVAR":
+            require "App/Controller/ReservaController.php";
+            $ReservaController = new ReservaController();
+            $ReservaController->Controller();
+            break;
+        case "ACOMODACOESOFF":
+            require "App/Controller/AcomodacoesOffController.php";
+            $AcomodacoesOffController = new AcomodacoesOffController();
+            $AcomodacoesOffController->Controller();
+            break;
+        case "IMOVELRESERVADO":
+            require "App/Controller/ImovelReservadoController.php";
+            $ImovelReservadoController = new ImovelReservadoController();
+            $ImovelReservadoController->Controller();
+            break;
+        // case "TESTE":
+        //     require "App/View/teste.php";
+        //     break;
         default:
-            require "App/Controller/HomeController.php";
-            $HomeController = new HomeController();
-            $HomeController->Controller();
             break;
     }
 } else {

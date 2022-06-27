@@ -1,11 +1,12 @@
 <?php
 
-require_once 'App/Model/Usuario.php';
-require_once 'IController.php';
+require_once "App/Model/Usuario.php";
+require "IController.php";
 
 class UserController implements IController
 {
     private $usuario;
+    private $imovel;
 
     public function __construct()
     {
@@ -19,10 +20,10 @@ class UserController implements IController
         $this->usuario->setTel($_POST['telefone']);
         $this->usuario->setsenha($_POST['senha']);
         $this->usuario->setEmail($_POST['email']);
-        $this->usuario->setpais($_POST['pais']);
+        $this->usuario->setpais(addslashes($_POST['pais']));
 
         $this->usuario->cadastrarUsuario();
 
-        require_once 'App/View/UserPage.php';
+        require "App/View/UserPage.php";
     }
 }
