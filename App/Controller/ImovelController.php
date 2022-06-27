@@ -96,10 +96,9 @@ class ImovelController implements IController
         $this->imovel->setImagens($_POST['imagemImovel']);
         $this->imovel->setDescricao($_POST['descricaoImovel']);
 
-        $result = $this->imovel->cadastrarImovel();
-
-        var_dump($result);
-        // require_once "App/View/UserPage.php";
+        $this->imovel->cadastrarImovel();
+        
+        require_once "App/View/UserPage.php";
     }
 
 }
