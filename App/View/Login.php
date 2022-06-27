@@ -8,7 +8,7 @@ require "page.php";
     <nav class="ms-3">
         <div class="container justify-content-center">
             <!-- Brand -->
-            <a class="navbar-brand" href="Home"><img src="logo.png" alt="logo" />
+            <a class="navbar-brand" href="Home"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" />
             </a>
         </div>
     </nav>

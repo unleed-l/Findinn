@@ -9,7 +9,7 @@ $logo = require_once "App/View/assets/logo.png";
 
         <ul class="nav justify-content-center">
             <li class="nav-item mx-2">
-                <a class="nav-link linksNav" href="Acomodacoes">Acomodações</a>
+                <a class="nav-link linksNav" href="AcomodacoesOff">Acomodações</a>
             </li>
             <li class="nav-item mx-2">
                 <a class="nav-link linksNav" href="Cadastro">Cadastre-se</a>
