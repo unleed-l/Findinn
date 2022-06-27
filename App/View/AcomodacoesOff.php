@@ -39,9 +39,19 @@ $conn = ConexaoBD::Conexao();
                     
                     if ($sql->rowCount() >0 && $sql2->rowCount() >0 ){
                         while($dados = $sql->fetch(PDO::FETCH_ASSOC && $dados2 = $sql2->fetch(PDO::FETCH_ASSOC))){ 
-                            echo "<div class='col'><div class='card h-100'><img src='{$dados['imagem_principal']}' class='card-img-top'/><div class='card-body'><h5 class='card-title'>{$dados2['tipo']}</h5><p class='card-text'>{$dados['descricao']}</p></div><div class='card-footer'><p class='text-muted'><strong class='text-dark'>A partir de {$dados['valor_diaria']}</strong></p><div class='d-flex justify-content-center'>
-                            </div></div></div></div>";
-                           
+                            echo "<div class='col'>
+                            <div class='card h-100'><img src='{$dados['imagem_principal']}' class='card-img-top' />
+                                <div class='card-body'>
+                                    <h5 class='card-title'>{$dados2['tipo']}</h5>
+                                    <p class='card-text'>{$dados['descricao']}</p>
+                                </div>
+                                <div class='card-footer'>
+                                    <p class='text-muted'><strong class='text-dark'>A partir de R&#36;{$dados['valor_diaria']}</strong></p>
+                                    <div class='d-flex justify-content-center'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
                         }
                     }    
                 ?>

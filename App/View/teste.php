@@ -6,6 +6,8 @@
         </div>
         <div class='card-footer'>
             <p class='text-muted'><strong class='text-dark'>A partir de {$dados['valor_diaria']}</strong></p>
+            <div class='d-flex justify-content-center'>
+            </div>
         </div>
     </div>
 </div>

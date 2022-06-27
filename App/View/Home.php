@@ -13,22 +13,6 @@ require "page.php";
         <section class="section section-top section-full">
             <!-- Cover -->
             <div class="bg-cover"></div>
-
-            <!-- Overlay -->
-            <div class="bg-overlay"></div>
-
-            <!-- Triangles -->
-            <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-left"></div>
-            <div class="bg-triangle bg-triangle-light bg-triangle-bottom bg-triangle-right"></div>
-
-            <!-- Content -->
-            <div class="container">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-md-8 col-lg-7"></div>
-                </div>
-                <!-- / .row -->
-            </div>
-            <!-- / .container -->
         </section>
     </div>
     <div class="container-fluid container">
@@ -43,7 +27,7 @@ require "page.php";
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?" alt="Los Angeles"
+                    <img src='https://images.unsplash.com/photo-1601918774946-25832a4be0d6?' alt="Los Angeles"
                         class="d-block" style="width: 100%" />
                 </div>
                 <div class="carousel-item">
@@ -71,7 +55,7 @@ require "page.php";
         <div class="row mt-4">
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1533654793924-4fc4949fb71e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+                    <img src="https://viagemeturismo.abril.com.br/wp-content/uploads/2016/12/hobbiton_set_movie-25.jpeg"
                         class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
@@ -98,7 +82,7 @@ require "page.php";
             </div>
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1520908695049-da13395b27a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
+                    <img src="https://rollingstone.uol.com.br/media/uploads/van_do_scooby-doo_no_airbnb_foto_reproducao__twitter.jpg"
                         class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
@@ -124,8 +108,8 @@ require "page.php";
             </div>
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                        class="card-img-top rounded" alt="..." />
+                    <img src="https://miro.medium.com/max/1200/0*zaF4A7YSAKMHjDlu.jpg" class="card-img-top rounded"
+                        alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
                             &#9733; &#9733; &#9733; &#9733; &#9733;

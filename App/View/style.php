@@ -25,7 +25,8 @@ padding-bottom: 7.5rem;
 }
 
 .bg-cover {
-background-image: url(https://images.unsplash.com/photo-1460627390041-532a28402358?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1487&q=80);
+background-image:
+url('https://b6d3c5t3.rocketcdn.me/wp-content/uploads/2019/08/Casa-de-luxo-elegante-a-venda-no-condom%C3%ADnio-Busca-Vida-_-3.jpg');
 position: absolute;
 top: 0;
 bottom: 0;

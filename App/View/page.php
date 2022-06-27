@@ -2,14 +2,21 @@
 <html lang="en">
 
 <head>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style type="text/css">
-        <?php require $style; ?>
+    <?php require $style;
+    ?>
     </style>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="App/View/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="App/View/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="App/View/assets/logo.png">
+    <link rel="manifest" href="App/View/assets/logo.png">
 
     <!--
     Required meta tags 

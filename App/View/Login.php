@@ -2,6 +2,7 @@
 $style = "cadastrar.php";
 $title = "Login";
 require "page.php";
+session_start();
 ?>
 
 <body class="d-flex bg-dark mt-5">

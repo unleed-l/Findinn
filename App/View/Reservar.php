@@ -1,4 +1,3 @@
-
 <?php
 $style = "acomodacoesStyle.php";
 $title = "FINDINN - ACOMODAÇÕES";
@@ -12,14 +11,15 @@ session_start();
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src='<?php echo 'App/View/assets/logo.png';?>' alt="logo" /></a>
+            <a class="navbar-brand" href="UserPage"><img src='<?php echo 'App/View/assets/logo.png';?>'
+                    alt="logo" /></a>
         </div>
     </nav>
 
     <!-- Section Cards-->
     <section class="mt-5">
         <div class="row row-cols-1 row-cols-md-3 g-4 ps-2 pe-2">
-        <?php
+            <?php
             require_once "App/Model/ConexaoBD.php";
 
                 $conn = ConexaoBD::Conexao();
@@ -167,7 +167,7 @@ session_start();
             
                
            ?>
-            
+
         </div>
     </section>
     <?php require 'footer.php'; ?>
