@@ -27,16 +27,16 @@ require "page.php";
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src='https://images.unsplash.com/photo-1601918774946-25832a4be0d6?' alt="Los Angeles"
-                        class="d-block" style="width: 100%" />
+                    <img src='https://www.galeriadaarquitetura.com.br/Img/projeto/702x415/5651/casa-113917.jpg'
+                        alt="Los Angeles" class="d-block" style="width: 100%" />
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?" alt="Chicago"
-                        class="d-block" style="width: 100%" />
+                    <img src="https://fotos.vivadecora.com.br/decoracao-casas-modernas-escada-de-alvenaria-com-iluminacao-e-canteiros-revistavd-201900-proportional-height_cover_medium.jpg"
+                        alt="Chicago" class="d-block" style="width: 100%" />
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1590856029620-9b5a4825d3be?" alt="Nicaragua"
-                        class="d-block" style="width: 100%" />
+                    <img src="https://www.dogusfacil.com.br/colunistas/filemanager/colunistas/piracicaba-casa-condominio-residencial-terras-de-artemis-artemis-23-11-2019_11-02-08-0_1.jpg"
+                        alt="Nicaragua" class="d-block" style="width: 100%" />
                 </div>
             </div>
 

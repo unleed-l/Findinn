@@ -44,16 +44,16 @@ session_start();
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?" alt="Los Angeles"
-                        class="d-block" style="width: 100%" />
+                    <img src="https://verticemt.com.br/wp-content/uploads/2020/10/UCAtrativo_Ib1e20a58-91a8-41f2-baed-366a21fca6c4.jpg"
+                        alt="Los Angeles" class="d-block" style="width: 100%" />
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?" alt="Chicago"
-                        class="d-block" style="width: 100%" />
+                    <img src="https://s3.imoview.com.br/visao/Imoveis/23669/cardeal-elias-fausto-rural-sitio-cardeal-13-01-2017_17-40-33-0.jpg"
+                        alt="Chicago" class="d-block" style="width: 100%" />
                 </div>
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1590856029620-9b5a4825d3be?" alt="Nicaragua"
-                        class="d-block" style="width: 100%" />
+                    <img src="https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?fit=2500%2C1666"
+                        alt="Nicaragua" class="d-block" style="width: 100%" />
                 </div>
             </div>
 
@@ -72,7 +72,7 @@ session_start();
         <div class="row mt-4">
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1533654793924-4fc4949fb71e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+                    <img src="https://casa.abril.com.br/wp-content/uploads/2016/11/as-patricinhas-de-beverly-hills-it-s-filmed-there.jpeg?resize=630,359"
                         class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
@@ -99,7 +99,7 @@ session_start();
             </div>
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1520908695049-da13395b27a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1225&q=80"
+                    <img src="https://casa.abril.com.br/wp-content/uploads/2016/11/crepusculo-azure-magazine.jpeg?resize=630,365"
                         class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
@@ -125,7 +125,7 @@ session_start();
             </div>
             <div class="col-md-3">
                 <div class="card mb-3 border-2">
-                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                    <img src="https://casa.abril.com.br/wp-content/uploads/2016/11/curtindo-a-vida-adoidado.jpeg?resize=630,506"
                         class="card-img-top rounded" alt="..." />
                     <div class="card-body pl-0">
                         <h5 class="card-title text-warning">
